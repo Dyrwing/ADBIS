@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrialTree - Research Projects</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Public/CSS/home.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">TrialTree</div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item">Home</a>
+                <a href="#" class="nav-item">Projects</a>
+                <a href="#" class="nav-item">Testimonials</a>
+                <a href="#" class="nav-item">FAQ</a>
+                <a href="#" class="nav-item">About Us</a>
+                <a href="#" class="nav-item">Contact</a>
+                <a href="#" class="nav-item researcher-link">For Researchers</a>
+            </nav>
+            <a href="#" class="login-btn" id="loginButton">Login</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Join Research Projects and Make a Difference</h1>
+            <p class="hero-subtitle">Your participation helps advance research and contributes to scientific knowledge. Explore our available projects and start your research journey today.</p>
+            <div class="action-buttons">
+                <a href="#" class="cta-button" id="signupButton">Sign Up as Participant</a>
+                <a href="#" class="login-link" id="heroLoginButton">Already have an account? Log in</a>
+            </div>
+        </div>
+    </section>
+
+   <!-- Projects Section -->
+<section class="projects-section">
+    <div class="container">
+        <h2 class="section-title">Available Research Projects</h2>
+        
+        <div class="filters-container">
+            <div class="filter-group">
+                <label class="filter-label">Gender:</label>
+                <select class="filter-select" id="genderFilter">
+                    <option value="all">All</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label class="filter-label">Age Range:</label>
+                <select class="filter-select" id="ageFilter">
+                    <option value="all">All</option>
+                    <option value="18-25">18-25</option>
+                    <option value="26-35">26-35</option>
+                    <option value="36-45">36-45</option>
+                    <option value="46+">46+</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label class="filter-label">Study Type:</label>
+                <select class="filter-select" id="typeFilter">
+                    <option value="all">All</option>
+                    <option value="clinical">Clinical</option>
+                    <option value="observational">Observational</option>
+                    <option value="survey">Survey</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Project cards will be inserted here by JavaScript -->
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">TrialTree</div>
+                <p class="company-info">TrialTree ApS</p>
+                <p class="company-info">CVR: 12345678</p>
+                <p class="company-info">contact@trialtree.com</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-title">Navigate</h3>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Home</a>
+                    <a href="#" class="footer-link">Projects</a>
+                    <a href="#" class="footer-link">Testimonials</a>
+                    <a href="#" class="footer-link">FAQ</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-title">About</h3>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">About Us</a>
+                    <a href="#" class="footer-link">Contact</a>
+                    <a href="#" class="footer-link">For Researchers</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <p class="copyright">© 2025 TrialTree. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal">
+            <button class="modal-close" id="closeLoginModal"><i class="fas fa-times"></i></button>
+            <h2 class="modal-title">Log In</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail" class="form-label">Email</label>
+                    <input type="email" id="loginEmail" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword" class="form-label">Password</label>
+                    <input type="password" id="loginPassword" class="form-input" required>
+                </div>
+                <button type="submit" class="form-button">Log In</button>
+                <div class="form-footer">
+                    <p>Don't have an account? <a href="#" class="form-link" id="switchToSignup">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal-overlay" id="signupModal">
+        <div class="modal">
+            <button class="modal-close" id="closeSignupModal"><i class="fas fa-times"></i></button>
+            <h2 class="modal-title">Sign Up as Participant</h2>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signupName" class="form-label">Full Name</label>
+                    <input type="text" id="signupName" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail" class="form-label">Email</label>
+                    <input type="email" id="signupEmail" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword" class="form-label">Password</label>
+                    <input type="password" id="signupPassword" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupConfirmPassword" class="form-label">Confirm Password</label>
+                    <input type="password" id="signupConfirmPassword" class="form-input" required>
+                </div>
+                <button type="submit" class="form-button">Sign Up</button>
+                <div class="form-footer">
+                    <p>Already have an account? <a href="#" class="form-link" id="switchToLogin">Log in</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="/Public/JS/home.js"></script>
+</html>
