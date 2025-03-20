@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TrialTree - Research Projects</title>
+    <title>Region H Psykiatri - Psychiatric Research Projects</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/Public/CSS/home.css">
@@ -12,39 +12,37 @@
     <!-- Header -->
     <header class="header">
         <div class="container header-container">
-            <div class="logo">TrialTree</div>
+            <div class="logo">Region H Psykiatri</div>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
             <nav class="nav-menu">
                 <a href="#" class="nav-item">Home</a>
-                <a href="#" class="nav-item">Projects</a>
+                <a href="#projects" class="nav-item">Projects</a>
                 <a href="#" class="nav-item">Testimonials</a>
-                <a href="#" class="nav-item">FAQ</a>
-                <a href="#" class="nav-item">About Us</a>
-                <a href="#" class="nav-item">Contact</a>
+                <a href="/Public/HTML/faq.html" class="nav-item">FAQ</a>
+                <a href="/Public/HTML/about.html" class="nav-item">About Us</a>
+                <a href="/Public/HTML/contact.html" class="nav-item">Contact</a>
                 <a href="#" class="nav-item researcher-link">For Researchers</a>
             </nav>
-            <a href="#" class="login-btn" id="loginButton">Login</a>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
-            <h1 class="hero-title">Join Research Projects and Make a Difference</h1>
-            <p class="hero-subtitle">Your participation helps advance research and contributes to scientific knowledge. Explore our available projects and start your research journey today.</p>
+            <h1 class="hero-title">Join Psychiatric Research Projects and Make a Difference</h1>
+            <p class="hero-subtitle">Your participation helps advance mental health research and contributes to improving psychiatric care. Explore our available projects and start your research journey today.</p>
             <div class="action-buttons">
-                <a href="#" class="cta-button" id="signupButton">Sign Up as Participant</a>
-                <a href="#" class="login-link" id="heroLoginButton">Already have an account? Log in</a>
+                <a href="#projects" class="cta-button" id="exploreProjectsBtn">Explore Projects</a>
             </div>
         </div>
     </section>
 
    <!-- Projects Section -->
-<section class="projects-section">
+<section class="projects-section" id="projects">
     <div class="container">
-        <h2 class="section-title">Available Research Projects</h2>
+        <h2 class="section-title">Available Psychiatric Research Projects</h2>
         
         <div class="filters-container">
             <div class="filter-group">
@@ -86,10 +84,10 @@
     <footer class="footer">
         <div class="container footer-container">
             <div class="footer-col">
-                <div class="footer-logo">TrialTree</div>
-                <p class="company-info">TrialTree ApS</p>
+                <div class="footer-logo">Region H Psykiatri</div>
+                <p class="company-info">Region H Psykiatri</p>
                 <p class="company-info">CVR: 12345678</p>
-                <p class="company-info">contact@trialtree.com</p>
+                <p class="company-info">contact@regionhpsykiatri.com</p>
                 <div class="social-links">
                     <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
@@ -100,73 +98,51 @@
                 <h3 class="footer-title">Navigate</h3>
                 <div class="footer-links">
                     <a href="#" class="footer-link">Home</a>
-                    <a href="#" class="footer-link">Projects</a>
+                    <a href="#projects" class="footer-link">Projects</a>
                     <a href="#" class="footer-link">Testimonials</a>
-                    <a href="#" class="footer-link">FAQ</a>
+                    <a href="/Public/HTML/faq.html" class="footer-link">FAQ</a>
                 </div>
             </div>
             <div class="footer-col">
                 <h3 class="footer-title">About</h3>
                 <div class="footer-links">
-                    <a href="#" class="footer-link">About Us</a>
-                    <a href="#" class="footer-link">Contact</a>
+                    <a href="/Public/HTML/about.html" class="footer-link">About Us</a>
+                    <a href="/Public/HTML/contact.html" class="footer-link">Contact</a>
                     <a href="#" class="footer-link">For Researchers</a>
                     <a href="#" class="footer-link">Privacy Policy</a>
                 </div>
             </div>
         </div>
         <div class="container">
-            <p class="copyright">© 2025 TrialTree. All rights reserved.</p>
+            <p class="copyright">© 2025 Region H Psykiatri. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Login Modal -->
-    <div class="modal-overlay" id="loginModal">
+    <!-- General Interest Modal -->
+    <div class="modal-overlay" id="interestModal">
         <div class="modal">
-            <button class="modal-close" id="closeLoginModal"><i class="fas fa-times"></i></button>
-            <h2 class="modal-title">Log In</h2>
-            <form id="loginForm">
+            <button class="modal-close" id="closeInterestModal"><i class="fas fa-times"></i></button>
+            <h2 class="modal-title">Express Interest in Psychiatric Research</h2>
+            <form id="generalInterestForm">
                 <div class="form-group">
-                    <label for="loginEmail" class="form-label">Email</label>
-                    <input type="email" id="loginEmail" class="form-input" required>
+                    <label for="generalName" class="form-label">Full Name</label>
+                    <input type="text" id="generalName" class="form-input" required>
                 </div>
                 <div class="form-group">
-                    <label for="loginPassword" class="form-label">Password</label>
-                    <input type="password" id="loginPassword" class="form-input" required>
+                    <label for="generalEmail" class="form-label">Email</label>
+                    <input type="email" id="generalEmail" class="form-input" required>
                 </div>
-                <button type="submit" class="form-button">Log In</button>
+                <div class="form-group">
+                    <label for="generalPhone" class="form-label">Phone Number</label>
+                    <input type="tel" id="generalPhone" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="generalInterests" class="form-label">What areas of psychiatric research interest you?</label>
+                    <textarea id="generalInterests" class="form-input textarea" required rows="4"></textarea>
+                </div>
+                <button type="submit" class="form-button">Submit Interest</button>
                 <div class="form-footer">
-                    <p>Don't have an account? <a href="#" class="form-link" id="switchToSignup">Sign up</a></p>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Signup Modal -->
-    <div class="modal-overlay" id="signupModal">
-        <div class="modal">
-            <button class="modal-close" id="closeSignupModal"><i class="fas fa-times"></i></button>
-            <h2 class="modal-title">Sign Up as Participant</h2>
-            <form id="signupForm">
-                <div class="form-group">
-                    <label for="signupName" class="form-label">Full Name</label>
-                    <input type="text" id="signupName" class="form-input" required>
-                </div>
-                <div class="form-group">
-                    <label for="signupEmail" class="form-label">Email</label>
-                    <input type="email" id="signupEmail" class="form-input" required>
-                </div>
-                <div class="form-group">
-                    <label for="signupPassword" class="form-label">Password</label>
-                    <input type="password" id="signupPassword" class="form-input" required>
-                </div>
-                <div class="form-group">
-                    <label for="signupConfirmPassword" class="form-label">Confirm Password</label>
-                    <input type="password" id="signupConfirmPassword" class="form-input" required>
-                </div>
-                <button type="submit" class="form-button">Sign Up</button>
-                <div class="form-footer">
-                    <p>Already have an account? <a href="#" class="form-link" id="switchToLogin">Log in</a></p>
+                    <p>By submitting, you agree to be contacted about relevant psychiatric research opportunities.</p>
                 </div>
             </form>
         </div>

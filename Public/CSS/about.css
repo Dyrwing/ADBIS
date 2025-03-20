@@ -1,0 +1,409 @@
+/* About Page Specific Styles */
+
+.about-header-section {
+    background-color: var(--light-gray);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.about-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--black);
+}
+
+.about-subtitle {
+    font-size: 1.25rem;
+    color: var(--secondary-color);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-content-section {
+    padding: 3rem 0 4rem;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    font-size: 0.875rem;
+    color: var(--secondary-color);
+}
+
+.breadcrumb a {
+    color: var(--primary-color);
+}
+
+.breadcrumb i {
+    font-size: 0.75rem;
+}
+
+/* Mission and Vision Section */
+.about-section {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.section-content {
+    flex: 1;
+}
+
+.section-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+}
+
+.centered-title {
+    text-align: center;
+}
+
+.section-text {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--secondary-color);
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+.mission-image, .values-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow);
+}
+
+.mission-cards {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.mission-card {
+    flex: 1;
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+}
+
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: #EFF6FF;
+    color: var(--primary-color);
+    border-radius: 9999px;
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.card-text {
+    color: var(--secondary-color);
+    line-height: 1.6;
+}
+
+/* Values Section */
+.value-item {
+    margin-bottom: 1.75rem;
+}
+
+.value-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.value-icon {
+    color: var(--primary-color);
+}
+
+.value-text {
+    color: var(--secondary-color);
+    line-height: 1.6;
+}
+
+/* Team Section */
+.team-section {
+    margin-bottom: 4rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.team-member-card {
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.team-member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.member-photo {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.member-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 1.5rem 1.5rem 0.5rem;
+}
+
+.member-role {
+    font-size: 0.875rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    margin: 0 1.5rem 1rem;
+}
+
+.member-bio {
+    color: var(--secondary-color);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin: 0 1.5rem 1.5rem;
+}
+
+/* Trust Indicators Section */
+.trust-section {
+    margin-bottom: 4rem;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.stat-box {
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.stat-description {
+    color: var(--secondary-color);
+    font-size: 0.875rem;
+}
+
+.partnerships {
+    background-color: var(--light-gray);
+    border-radius: 0.5rem;
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.partnerships-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.partners-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.partner-logo {
+    background-color: var(--white);
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--box-shadow);
+}
+
+.partner-logo img {
+    max-height: 80px;
+    max-width: 150px;
+}
+
+.ethics-commitment {
+    display: flex;
+    gap: 2rem;
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    padding: 2.5rem;
+    box-shadow: var(--box-shadow);
+}
+
+.ethics-icon {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+.ethics-content {
+    flex: 1;
+}
+
+.ethics-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.ethics-text {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* CTA Section */
+.about-cta {
+    background-color: var(--light-gray);
+    border-radius: 0.5rem;
+    padding: 3rem;
+    text-align: center;
+}
+
+.cta-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.cta-text {
+    color: var(--secondary-color);
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.cta-button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.primary-cta {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.primary-cta:hover {
+    background-color: #1a56db;
+}
+
+.secondary-cta {
+    background-color: var(--white);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.secondary-cta:hover {
+    background-color: #EFF6FF;
+}
+
+/* Responsive Styles */
+@media (max-width: 1023px) {
+    .about-title {
+        font-size: 2rem;
+    }
+    
+    .mission-cards {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 767px) {
+    .about-title {
+        font-size: 1.75rem;
+    }
+    
+    .about-subtitle {
+        font-size: 1rem;
+    }
+    
+    .about-section {
+        flex-direction: column;
+    }
+    
+    .values-section {
+        flex-direction: column-reverse;
+    }
+    
+    .section-image {
+        margin-bottom: 2rem;
+    }
+    
+    .ethics-commitment {
+        flex-direction: column;
+    }
+    
+    .ethics-icon {
+        margin-bottom: 1.5rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
