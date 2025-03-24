@@ -12,7 +12,10 @@
     <!-- Header -->
     <header class="header">
         <div class="container header-container">
-            <div class="logo">Region H Psykiatri</div>
+            <div class="logo">
+                <img src="/Public/Sources/Psykiatrimaerke_Twitter.png" alt="Region H Psykiatri Logo" class="logo-img">
+                <span class="logo-text">Region H Psykiatri</span>
+            </div>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
@@ -45,66 +48,181 @@
         <h2 class="section-title">Available Psychiatric Research Projects</h2>
         
         <div class="filters-container">
-            <div class="filter-group">
-                <label class="filter-label">Gender:</label>
-                <select class="filter-select" id="genderFilter">
-                    <option value="all">All</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
+            <div class="filter-dropdown">
+                <button class="filter-button" data-filter="gender">
+                    <span class="filter-label">Gender:</span>
+                    <span class="selected-option" id="selectedGender">All</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <div class="dropdown-option" data-value="all">All</div>
+                    <div class="dropdown-option multi-option" data-value="male">
+                        <span class="option-text">Male</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="female">
+                        <span class="option-text">Female</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                </div>
             </div>
-            <div class="filter-group">
-                <label class="filter-label">Age Range:</label>
-                <select class="filter-select" id="ageFilter">
-                    <option value="all">All</option>
-                    <option value="18-25">18-25</option>
-                    <option value="26-35">26-35</option>
-                    <option value="36-45">36-45</option>
-                    <option value="46+">46+</option>
-                </select>
+            
+            <div class="filter-dropdown">
+                <button class="filter-button" data-filter="age">
+                    <span class="filter-label">Age Range:</span>
+                    <span class="selected-option" id="selectedAge">All</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <div class="dropdown-option" data-value="all">All</div>
+                    <div class="dropdown-option multi-option" data-value="18-25">
+                        <span class="option-text">18-25</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="26-35">
+                        <span class="option-text">26-35</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="36-45">
+                        <span class="option-text">36-45</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="46+">
+                        <span class="option-text">46+</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                </div>
             </div>
-            <div class="filter-group">
-                <label class="filter-label">Study Type:</label>
-                <select class="filter-select" id="typeFilter">
-                    <option value="all">All</option>
-                    <option value="clinical">Clinical</option>
-                    <option value="observational">Observational</option>
-                    <option value="survey">Survey</option>
-                </select>
+            
+            <div class="filter-dropdown">
+                <button class="filter-button" data-filter="type">
+                    <span class="filter-label">Study Type:</span>
+                    <span class="selected-option" id="selectedType">All</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <div class="dropdown-option" data-value="all">All</div>
+                    <div class="dropdown-option multi-option" data-value="clinical">
+                        <span class="option-text">Clinical</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="observational">
+                        <span class="option-text">Observational</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="survey">
+                        <span class="option-text">Survey</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                </div>
             </div>
-            <div class="filter-group">
-                <label class="filter-label">Diagnose eller mistanke om diagnose:</label>
-                <select class="filter-select" id="diagnosisFilter">
-                    <option value="all">All</option>
-                    <option value="Hjerneskade">Hjerneskade</option>
-                    <option value="Psykisk sygdom som følge af misbrug">Psykisk sygdom som følge af misbrug</option>
-                    <option value="Psykose, skizofreni og skizotypi">Psykose, skizofreni og skizotypi</option>
-                    <option value="Depression og bipolar lidelse">Depression og bipolar lidelse</option>
-                    <option value="Stress og angst">Stress og angst</option>
-                    <option value="Spiseforstyrrelse">Spiseforstyrrelse</option>
-                    <option value="Personlighedsforstyrrelse og selvskade">Personlighedsforstyrrelse og selvskade</option>
-                    <option value="Udviklingshæmning">Udviklingshæmning</option>
-                    <option value="Autisme">Autisme</option>
-                    <option value="AD(H)D, OCD og Tourette">AD(H)D, OCD og Tourette</option>
-                    <option value="Ingen">Ingen</option>
-                </select>
+            
+            <div class="filter-dropdown">
+                <button class="filter-button" data-filter="diagnosis">
+                    <span class="filter-label">Diagnosis:</span>
+                    <span class="selected-option" id="selectedDiagnosis">All</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <div class="dropdown-option" data-value="all">All</div>
+                    <div class="dropdown-option multi-option" data-value="Hjerneskade">
+                        <span class="option-text">Hjerneskade</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="Psykisk sygdom som følge af misbrug">
+                        <span class="option-text">Psykisk sygdom som følge af misbrug</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="Psykose, skizofreni og skizotypi">
+                        <span class="option-text">Psykose, skizofreni og skizotypi</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="Depression og bipolar lidelse">
+                        <span class="option-text">Depression og bipolar lidelse</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="Stress og angst">
+                        <span class="option-text">Stress og angst</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="Spiseforstyrrelse">
+                        <span class="option-text">Spiseforstyrrelse</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="Personlighedsforstyrrelse og selvskade">
+                        <span class="option-text">Personlighedsforstyrrelse og selvskade</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="Udviklingshæmning">
+                        <span class="option-text">Udviklingshæmning</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="Autisme">
+                        <span class="option-text">Autisme</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="AD(H)D, OCD og Tourette">
+                        <span class="option-text">AD(H)D, OCD og Tourette</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="Ingen">
+                        <span class="option-text">Ingen</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                </div>
             </div>
-            <div class="filter-group">
-                <label class="filter-label">Psykiatrisk center:</label>
-                <select class="filter-select" id="centerFilter">
-                    <option value="all">All</option>
-                    <option value="Børne- og Ungdomspsykiatrisk Center">Børne- og Ungdomspsykiatrisk Center</option>
-                    <option value="Psykiatrisk Center Amager">Psykiatrisk Center Amager</option>
-                    <option value="Psykiatrisk Center Ballerup">Psykiatrisk Center Ballerup</option>
-                    <option value="Psykiatrisk Center Bornholm">Psykiatrisk Center Bornholm</option>
-                    <option value="Psykiatrisk Center Glostrup">Psykiatrisk Center Glostrup</option>
-                    <option value="Psykiatrisk Center København">Psykiatrisk Center København</option>
-                    <option value="Psykiatrisk Center Nordsjælland">Psykiatrisk Center Nordsjælland</option>
-                    <option value="Psykiatrisk Center Sct. Hans">Psykiatrisk Center Sct. Hans</option>
-                    <option value="Psykiatrisk Center Stolpegård">Psykiatrisk Center Stolpegård</option>
-                </select>
+            
+            <div class="filter-dropdown">
+                <button class="filter-button" data-filter="center">
+                    <span class="filter-label">Psychiatric Center:</span>
+                    <span class="selected-option" id="selectedCenter">All</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <div class="dropdown-option" data-value="all">All</div>
+                    <div class="dropdown-option multi-option" data-value="Børne- og Ungdomspsykiatrisk Center">
+                        <span class="option-text">Børne- og Ungdomspsykiatrisk Center</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="Psykiatrisk Center Amager">
+                        <span class="option-text">Psykiatrisk Center Amager</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="Psykiatrisk Center Ballerup">
+                        <span class="option-text">Psykiatrisk Center Ballerup</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="Psykiatrisk Center Bornholm">
+                        <span class="option-text">Psykiatrisk Center Bornholm</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="Psykiatrisk Center Glostrup">
+                        <span class="option-text">Psykiatrisk Center Glostrup</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="Psykiatrisk Center København">
+                        <span class="option-text">Psykiatrisk Center København</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="Psykiatrisk Center Nordsjælland">
+                        <span class="option-text">Psykiatrisk Center Nordsjælland</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="Psykiatrisk Center Sct. Hans">
+                        <span class="option-text">Psykiatrisk Center Sct. Hans</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                    <div class="dropdown-option multi-option" data-value="Psykiatrisk Center Stolpegård">
+                        <span class="option-text">Psykiatrisk Center Stolpegård</span>
+                        <span class="checkbox"><i class="fas fa-check"></i></span>
+                    </div>
+                </div>
             </div>
-            <button id="clearFiltersButton" class="clear-filters-button">Clear Filters</button>
+            
+            <div class="filter-counters">
+                <span class="results-count" id="resultsCount"></span>
+                <button id="clearFiltersButton" class="clear-filters-button" disabled>Clear Filters</button>
+            </div>
         </div>
         
         <div class="projects-grid" id="projectsGrid">
