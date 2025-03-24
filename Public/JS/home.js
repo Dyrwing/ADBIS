@@ -28,7 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
             startDate: "April 15, 2025",
             criteria: ["18-25 years", "Depression diagnosis", "Regular sleep schedule"],
             gender: "all",
-            ageRange: "18-25"
+            ageRange: "18-25",
+            diagnosis: ["Depression og bipolar lidelse"],
+            center: "Psykiatrisk Center København"
         },
         {
             id: 2,
@@ -40,7 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
             startDate: "May 1, 2025",
             criteria: ["Anxiety diagnosis", "No psychotherapy", "Weekly sessions"],
             gender: "all",
-            ageRange: "36-45"
+            ageRange: "36-45",
+            diagnosis: ["Stress og angst"],
+            center: "Psykiatrisk Center Amager"
         },
         {
             id: 3,
@@ -52,7 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
             startDate: "Immediate",
             criteria: ["Female", "Mental health care access"],
             gender: "female",
-            ageRange: "26-35"
+            ageRange: "26-35",
+            diagnosis: ["Ingen"],
+            center: "Psykiatrisk Center Ballerup"
         },
         {
             id: 4,
@@ -64,7 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
             startDate: "April 20, 2025",
             criteria: ["Full-time employed", "Office worker", "Self-reported stress"],
             gender: "all",
-            ageRange: "26-35"
+            ageRange: "26-35",
+            diagnosis: ["Stress og angst"],
+            center: "Psykiatrisk Center Glostrup"
         },
         {
             id: 5,
@@ -76,7 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
             startDate: "June 1, 2025",
             criteria: ["Male", "PTSD diagnosis", "No current therapy"],
             gender: "male",
-            ageRange: "46+"
+            ageRange: "46+",
+            diagnosis: ["Psykose, skizofreni og skizotypi"],
+            center: "Psykiatrisk Center Sct. Hans"
         },
         {
             id: 6,
@@ -88,7 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
             startDate: "Immediate",
             criteria: ["Smartphone user", "Social media user"],
             gender: "all",
-            ageRange: "18-25"
+            ageRange: "18-25",
+            diagnosis: ["Ingen"],
+            center: "Psykiatrisk Center Stolpegård"
         }
     ];
     
@@ -98,6 +110,51 @@ document.addEventListener('DOMContentLoaded', () => {
         const genderFilter = document.getElementById('genderFilter');
         const ageFilter = document.getElementById('ageFilter');
         const typeFilter = document.getElementById('typeFilter');
+        const diagnosisFilter = document.getElementById('diagnosisFilter');
+        const centerFilter = document.getElementById('centerFilter');
+        
+        // Function to check if a filter is active (not set to 'all')
+        function isFilterActive(filter) {
+            return filter.value !== 'all';
+        }
+        
+        // Function to update filter visual state
+        function updateFilterStyles() {
+            // Update gender filter style
+            if (isFilterActive(genderFilter)) {
+                genderFilter.classList.add('filter-active');
+            } else {
+                genderFilter.classList.remove('filter-active');
+            }
+            
+            // Update age filter style
+            if (isFilterActive(ageFilter)) {
+                ageFilter.classList.add('filter-active');
+            } else {
+                ageFilter.classList.remove('filter-active');
+            }
+            
+            // Update type filter style
+            if (isFilterActive(typeFilter)) {
+                typeFilter.classList.add('filter-active');
+            } else {
+                typeFilter.classList.remove('filter-active');
+            }
+            
+            // Update diagnosis filter style
+            if (isFilterActive(diagnosisFilter)) {
+                diagnosisFilter.classList.add('filter-active');
+            } else {
+                diagnosisFilter.classList.remove('filter-active');
+            }
+            
+            // Update center filter style
+            if (isFilterActive(centerFilter)) {
+                centerFilter.classList.add('filter-active');
+            } else {
+                centerFilter.classList.remove('filter-active');
+            }
+        }
         
         // Function to render projects
         function renderProjects(projects) {
@@ -157,26 +214,41 @@ document.addEventListener('DOMContentLoaded', () => {
             const genderValue = genderFilter.value;
             const ageValue = ageFilter.value;
             const typeValue = typeFilter.value;
+            const diagnosisValue = diagnosisFilter.value;
+            const centerValue = centerFilter.value;
             
+            // Update the visual state of filters
+            updateFilterStyles();
+
             const filteredProjects = mockProjects.filter(project => {
                 // Filter by gender
-                if (genderValue !== 'all' && project.gender !== 'all' && project.gender !== genderValue) {
+                if (genderValue !== 'all' && project.gender !== genderValue && project.gender !== 'all') {
                     return false;
                 }
-                
+
                 // Filter by age range
                 if (ageValue !== 'all' && project.ageRange !== ageValue) {
                     return false;
                 }
-                
+
                 // Filter by study type
                 if (typeValue !== 'all' && project.type !== typeValue) {
                     return false;
                 }
-                
+
+                // Filter by diagnosis
+                if (diagnosisValue !== 'all' && !project.diagnosis.includes(diagnosisValue)) {
+                    return false;
+                }
+
+                // Filter by psychiatric center
+                if (centerValue !== 'all' && project.center !== centerValue) {
+                    return false;
+                }
+
                 return true;
             });
-            
+
             renderProjects(filteredProjects);
         }
         
@@ -184,7 +256,24 @@ document.addEventListener('DOMContentLoaded', () => {
         genderFilter.addEventListener('change', filterProjects);
         ageFilter.addEventListener('change', filterProjects);
         typeFilter.addEventListener('change', filterProjects);
+        diagnosisFilter.addEventListener('change', filterProjects);
+        centerFilter.addEventListener('change', filterProjects);
         
+        // Clear filters functionality
+        const clearFiltersButton = document.getElementById('clearFiltersButton');
+        clearFiltersButton.addEventListener('click', () => {
+            genderFilter.value = 'all';
+            ageFilter.value = 'all';
+            typeFilter.value = 'all';
+            diagnosisFilter.value = 'all';
+            centerFilter.value = 'all';
+            
+            // Update the visual state of filters
+            updateFilterStyles();
+            
+            filterProjects();
+        });
+
         // Initial render
         renderProjects(mockProjects);
     }
