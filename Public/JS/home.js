@@ -16,304 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    // Mock projects data
-    const mockProjects = [
-        {
-            id: 1,
-            title: "Sleep Patterns in Depression",
-            description: "This research aims to understand sleep patterns and their impact on cognitive function in individuals with depression.",
-            type: "observational",
-            location: "Copenhagen",
-            duration: "4 weeks",
-            startDate: "April 15, 2025",
-            criteria: ["18-25 years", "Depression diagnosis", "Regular sleep schedule"],
-            gender: "all",
-            ageRange: "18-25",
-            diagnosis: ["Depression og bipolar lidelse"],
-            center: "Psykiatrisk Center København"
-        },
-        {
-            id: 2,
-            title: "Mindfulness for Anxiety Disorders",
-            description: "Clinical trial testing a new mindfulness approach for managing anxiety disorders.",
-            type: "clinical",
-            location: "Aarhus",
-            duration: "6 months",
-            startDate: "May 1, 2025",
-            criteria: ["Anxiety diagnosis", "No psychotherapy", "Weekly sessions"],
-            gender: "all",
-            ageRange: "36-45",
-            diagnosis: ["Stress og angst"],
-            center: "Psykiatrisk Center Amager"
-        },
-        {
-            id: 3,
-            title: "Women's Mental Health Survey",
-            description: "A comprehensive survey on women's mental health concerns, access to psychiatric care, and wellness practices.",
-            type: "survey",
-            location: "Online",
-            duration: "1 hour",
-            startDate: "Immediate",
-            criteria: ["Female", "Mental health care access"],
-            gender: "female",
-            ageRange: "26-35",
-            diagnosis: ["Ingen"],
-            center: "Psykiatrisk Center Ballerup"
-        },
-        {
-            id: 4,
-            title: "Workplace Stress and Burnout Prevention",
-            description: "Investigating the effectiveness of different stress management techniques in preventing workplace burnout.",
-            type: "observational",
-            location: "Odense",
-            duration: "8 weeks",
-            startDate: "April 20, 2025",
-            criteria: ["Full-time employed", "Office worker", "Self-reported stress"],
-            gender: "all",
-            ageRange: "26-35",
-            diagnosis: ["Stress og angst"],
-            center: "Psykiatrisk Center Glostrup"
-        },
-        {
-            id: 5,
-            title: "PTSD Treatment Innovation",
-            description: "Study on novel therapeutic approaches for post-traumatic stress disorder in middle-aged men.",
-            type: "clinical",
-            location: "Aalborg",
-            duration: "3 months",
-            startDate: "June 1, 2025",
-            criteria: ["Male", "PTSD diagnosis", "No current therapy"],
-            gender: "male",
-            ageRange: "46+",
-            diagnosis: ["Psykose, skizofreni og skizotypi"],
-            center: "Psykiatrisk Center Sct. Hans"
-        },
-        {
-            id: 6,
-            title: "Digital Tech and Mental Wellbeing",
-            description: "Survey on digital device usage and its impact on mental health and psychological wellbeing.",
-            type: "survey",
-            location: "Online",
-            duration: "30 minutes",
-            startDate: "Immediate",
-            criteria: ["Smartphone user", "Social media user"],
-            gender: "all",
-            ageRange: "18-25",
-            diagnosis: ["Ingen"],
-            center: "Psykiatrisk Center Stolpegård"
-        },
-        {
-            id: 7,
-            title: "Cognitive Behavioral Therapy for OCD",
-            description: "Evaluating a modified CBT protocol specifically designed for adults with treatment-resistant OCD.",
-            type: "clinical",
-            location: "Copenhagen",
-            duration: "12 weeks",
-            startDate: "June 15, 2025",
-            criteria: ["OCD diagnosis", "Previous therapy experience", "Ages 25-55"],
-            gender: "all",
-            ageRange: "26-35",
-            diagnosis: ["AD(H)D, OCD og Tourette"],
-            center: "Psykiatrisk Center København"
-        },
-        {
-            id: 8,
-            title: "Technology-Assisted Therapy for Adolescents",
-            description: "Testing a new app-based intervention to supplement traditional therapy for teens with anxiety and depression.",
-            type: "clinical",
-            location: "Online + Odense",
-            duration: "16 weeks",
-            startDate: "May 10, 2025",
-            criteria: ["Ages 13-18", "Anxiety or depression", "Smartphone access"],
-            gender: "all",
-            ageRange: "18-25",
-            diagnosis: ["Depression og bipolar lidelse", "Stress og angst"],
-            center: "Børne- og Ungdomspsykiatrisk Center"
-        },
-        {
-            id: 9,
-            title: "Neurofeedback Training for ADHD",
-            description: "Examining the efficacy of neurofeedback training in adults with ADHD who prefer non-medication approaches.",
-            type: "clinical",
-            location: "Aalborg",
-            duration: "10 weeks",
-            startDate: "July 5, 2025",
-            criteria: ["ADHD diagnosis", "Age 21-40", "No stimulant medications"],
-            gender: "all",
-            ageRange: "26-35",
-            diagnosis: ["AD(H)D, OCD og Tourette"],
-            center: "Psykiatrisk Center Nordsjælland"
-        },
-        {
-            id: 10,
-            title: "Autistic Adults Social Skills Groups",
-            description: "Research on the effectiveness of peer-led social skills groups for autistic adults.",
-            type: "observational",
-            location: "Copenhagen",
-            duration: "6 months",
-            startDate: "June 1, 2025",
-            criteria: ["Autism diagnosis", "Age 18+", "Interest in social skills development"],
-            gender: "all",
-            ageRange: "18-25",
-            diagnosis: ["Autisme"],
-            center: "Psykiatrisk Center Ballerup"
-        },
-        {
-            id: 11,
-            title: "Bipolar Disorder Sleep Patterns",
-            description: "Investigating the relationship between sleep patterns and mood stability in people with bipolar disorder.",
-            type: "observational",
-            location: "Aarhus",
-            duration: "3 months",
-            startDate: "May 15, 2025",
-            criteria: ["Bipolar I or II diagnosis", "Not in acute episode", "No sleep disorders"],
-            gender: "all",
-            ageRange: "26-35",
-            diagnosis: ["Depression og bipolar lidelse"],
-            center: "Psykiatrisk Center Amager"
-        },
-        {
-            id: 12,
-            title: "Trauma-Focused Yoga for PTSD",
-            description: "Examining the benefits of trauma-sensitive yoga practices for women with PTSD from domestic violence.",
-            type: "clinical",
-            location: "Odense",
-            duration: "8 weeks",
-            startDate: "July 10, 2025",
-            criteria: ["Female", "PTSD diagnosis", "History of domestic violence", "No active substance use"],
-            gender: "female",
-            ageRange: "26-35",
-            diagnosis: ["Psykose, skizofreni og skizotypi", "Stress og angst"],
-            center: "Psykiatrisk Center Glostrup"
-        },
-        {
-            id: 13,
-            title: "Men's Mental Health Attitudes",
-            description: "Survey exploring attitudes toward mental health services among men of different age groups and backgrounds.",
-            type: "survey",
-            location: "Online",
-            duration: "20 minutes",
-            startDate: "Immediate",
-            criteria: ["Male", "Age 18+", "Danish resident"],
-            gender: "male",
-            ageRange: "all",
-            diagnosis: ["Ingen"],
-            center: "Psykiatrisk Center Sct. Hans"
-        },
-        {
-            id: 14,
-            title: "Recovery Narratives in Schizophrenia",
-            description: "Qualitative study examining personal narratives of recovery in people with schizophrenia spectrum disorders.",
-            type: "observational",
-            location: "Copenhagen",
-            duration: "2 interviews (2 hours each)",
-            startDate: "June 20, 2025",
-            criteria: ["Schizophrenia spectrum diagnosis", "In stable recovery for 1+ years"],
-            gender: "all",
-            ageRange: "36-45",
-            diagnosis: ["Psykose, skizofreni og skizotypi"],
-            center: "Psykiatrisk Center København"
-        },
-        {
-            id: 15,
-            title: "Mindfulness for Teen Eating Disorders",
-            description: "Testing a mindfulness-based intervention for adolescents with eating disorders.",
-            type: "clinical",
-            location: "Aarhus",
-            duration: "10 weeks",
-            startDate: "August 5, 2025",
-            criteria: ["Ages 14-18", "Eating disorder diagnosis", "Medically stable"],
-            gender: "all",
-            ageRange: "18-25",
-            diagnosis: ["Spiseforstyrrelse"],
-            center: "Børne- og Ungdomspsykiatrisk Center"
-        },
-        {
-            id: 16,
-            title: "Digital Mental Health Access in Rural Communities",
-            description: "Survey on barriers to accessing digital mental health services in rural Danish communities.",
-            type: "survey",
-            location: "Online",
-            duration: "25 minutes",
-            startDate: "Immediate",
-            criteria: ["Rural resident", "Age 18+", "With or without mental health conditions"],
-            gender: "all",
-            ageRange: "all",
-            diagnosis: ["Ingen"],
-            center: "Psykiatrisk Center Bornholm"
-        },
-        {
-            id: 17,
-            title: "Substance Use and Anxiety Treatment",
-            description: "Investigating integrated treatment approaches for co-occurring substance use and anxiety disorders.",
-            type: "clinical",
-            location: "Copenhagen",
-            duration: "14 weeks",
-            startDate: "July 1, 2025",
-            criteria: ["Anxiety diagnosis", "History of substance use", "Currently abstinent (min. 30 days)"],
-            gender: "all",
-            ageRange: "26-35",
-            diagnosis: ["Psykisk sygdom som følge af misbrug", "Stress og angst"],
-            center: "Psykiatrisk Center Stolpegård"
-        },
-        {
-            id: 18,
-            title: "Virtual Reality Exposure for Phobias",
-            description: "Testing the effectiveness of VR exposure therapy for specific phobias in older adults.",
-            type: "clinical",
-            location: "Aalborg",
-            duration: "6 weeks",
-            startDate: "June 10, 2025",
-            criteria: ["Age 55+", "Specific phobia diagnosis", "No cardiovascular conditions"],
-            gender: "all",
-            ageRange: "46+",
-            diagnosis: ["Stress og angst"],
-            center: "Psykiatrisk Center Nordsjælland"
-        },
-        {
-            id: 19,
-            title: "Brain Injury and Mood Changes",
-            description: "Research examining the relationship between traumatic brain injury and subsequent mood disorders.",
-            type: "observational",
-            location: "Odense",
-            duration: "Single 3-hour assessment",
-            startDate: "Ongoing",
-            criteria: ["History of traumatic brain injury", "1+ years post-injury", "Age 25-65"],
-            gender: "all",
-            ageRange: "26-35",
-            diagnosis: ["Hjerneskade", "Depression og bipolar lidelse"],
-            center: "Psykiatrisk Center Glostrup"
-        },
-        {
-            id: 20,
-            title: "Personality Disorders and Relationship Patterns",
-            description: "Study on interpersonal relationship patterns among individuals with different personality disorder diagnoses.",
-            type: "observational",
-            location: "Copenhagen",
-            duration: "4 interviews over 2 months",
-            startDate: "July 15, 2025",
-            criteria: ["Personality disorder diagnosis", "Currently in treatment", "Age 25-50"],
-            gender: "all",
-            ageRange: "26-35",
-            diagnosis: ["Personlighedsforstyrrelse og selvskade"],
-            center: "Psykiatrisk Center Stolpegård"
-        },
-        {
-            id: 21,
-            title: "Music Therapy for Adult ADHD",
-            description: "Pilot study exploring music therapy's effects on executive functioning in adults with ADHD.",
-            type: "clinical",
-            location: "Aarhus",
-            duration: "8 weeks",
-            startDate: "August 15, 2025",
-            criteria: ["ADHD diagnosis", "Age 21-40", "No musical training required"],
-            gender: "all",
-            ageRange: "26-35",
-            diagnosis: ["AD(H)D, OCD og Tourette"],
-            center: "Psykiatrisk Center Amager"
-        }
-    ];
-    
     // Check if projects grid exists (only on home page)
     const projectsGrid = document.getElementById('projectsGrid');
     if (projectsGrid) {
@@ -413,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     
                     // Apply filters
-                    filterProjects();
+                    fetchAndFilterProjects();
                 });
             });
         });
@@ -470,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                     </div>
                                 </div>
                             </div>
-                            <a href="/Public/HTML/project-detail.html?id=${project.id}" class="project-link">View Project</a>
+                            <a href="/HTML/project-detail.html?id=${project.id}" class="project-link">View Project</a>
                         </div>
                     `;
                     
@@ -482,48 +184,39 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 200);
         }
         
-        // Function to filter projects
-        function filterProjects() {
-            const filteredProjects = mockProjects.filter(project => {
-                // Filter by gender - updated for multiple selections
-                if (filterValues.gender.length > 0) {
-                    // Check if project gender matches any selected gender or is 'all'
-                    if (!filterValues.gender.includes(project.gender) && project.gender !== 'all') {
-                        return false;
-                    }
+        // Function to fetch projects with filters
+        function fetchAndFilterProjects() {
+            // Show loading state
+            projectsGrid.innerHTML = '<div class="loading-spinner"><i class="fas fa-spinner fa-spin"></i><p>Loading projects...</p></div>';
+            
+            // Build query parameters for API call
+            const queryParams = new URLSearchParams();
+            
+            // Add filter values to query parameters
+            Object.keys(filterValues).forEach(key => {
+                if (filterValues[key].length > 0) {
+                    filterValues[key].forEach(value => {
+                        queryParams.append(key, value);
+                    });
                 }
-                
-                // Filter by age range - updated for multiple selections
-                if (filterValues.age.length > 0 && !filterValues.age.includes(project.ageRange)) {
-                    return false;
-                }
-                
-                // Filter by study type - updated for multiple selections
-                if (filterValues.type.length > 0 && !filterValues.type.includes(project.type)) {
-                    return false;
-                }
-                
-                // Filter by diagnosis - already handles multiple selections
-                if (filterValues.diagnosis.length > 0) {
-                    // Check if the project has at least one of the selected diagnoses
-                    const hasMatchingDiagnosis = project.diagnosis.some(d => 
-                        filterValues.diagnosis.includes(d)
-                    );
-                    
-                    if (!hasMatchingDiagnosis) {
-                        return false;
-                    }
-                }
-                
-                // Filter by psychiatric center - updated for multiple selections
-                if (filterValues.center.length > 0 && !filterValues.center.includes(project.center)) {
-                    return false;
-                }
-                
-                return true;
             });
             
-            renderProjects(filteredProjects);
+            // Call API with filters
+            fetch(`/api/projects?${queryParams.toString()}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(projects => {
+                    renderProjects(projects);
+                })
+                .catch(error => {
+                    console.error('Error fetching projects:', error);
+                    projectsGrid.innerHTML = '<p class="error-message">Error loading projects. Please try again later.</p>';
+                    resultsCount.textContent = 'Error';
+                });
         }
         
         // Clear filters functionality
@@ -556,8 +249,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Disable clear button
             clearFiltersButton.disabled = true;
             
-            // Apply filters (show all)
-            filterProjects();
+            // Fetch all projects without filters
+            fetchAndFilterProjects();
         });
         
         // Close dropdowns when clicking elsewhere
@@ -575,8 +268,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
         
-        // Initial render
-        filterProjects();
+        // Initial fetch when page loads
+        fetchAndFilterProjects();
     }
 
     // Interest form modal functionality (if on home page)
