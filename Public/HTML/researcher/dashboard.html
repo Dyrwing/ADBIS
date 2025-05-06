@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Researcher Dashboard - Region H Psykiatri</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/CSS/home.css">
+    <link rel="stylesheet" href="/CSS/researcher/dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="/Sources/Psykiatrimaerke_Twitter.png" alt="Region H Psykiatri Logo" class="logo-img">
+                <span class="logo-text">Region H Psykiatri</span>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-menu">
+                <a href="/HTML/home.html" class="nav-item">Home</a>
+                <a href="/HTML/home.html#projects" class="nav-item">Projects</a>
+                <a href="#" class="nav-item">Testimonials</a>
+                <a href="/HTML/faq.html" class="nav-item">FAQ</a>
+                <a href="/HTML/about.html" class="nav-item">About Us</a>
+                <a href="/HTML/contact.html" class="nav-item">Contact</a>
+                <a href="/HTML/researcher/dashboard.html" class="nav-item researcher-link active">Researcher Portal</a>
+            </nav>
+            <div class="user-menu" id="userMenu">
+                <button class="user-menu-button" id="userMenuButton">
+                    <i class="fas fa-user-circle"></i>
+                    <span class="username" id="usernameDisplay">Researcher</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="/HTML/researcher/profile.html" class="dropdown-item">
+                        <i class="fas fa-id-card"></i> Profile
+                    </a>
+                    <a href="#" class="dropdown-item" id="logoutButton">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard-section">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1 class="dashboard-title">Researcher Dashboard</h1>
+                <div class="dashboard-actions">
+                    <button id="newProjectBtn" class="action-button primary-action">
+                        <i class="fas fa-plus"></i> New Project Request
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Sidebar Navigation -->
+                <aside class="dashboard-sidebar">
+                    <nav class="sidebar-nav">
+                        <a href="#projects" class="nav-item active">
+                            <i class="fas fa-flask"></i> My Projects
+                        </a>
+                        <a href="#requests" class="nav-item">
+                            <i class="fas fa-tasks"></i> Pending Requests
+                        </a>
+                        <a href="#notifications" class="nav-item">
+                            <i class="fas fa-bell"></i> Notifications
+                            <span class="badge">3</span>
+                        </a>
+                    </nav>
+                </aside>
+                
+                <!-- Main Content Area -->
+                <main class="dashboard-main">
+                    <!-- Projects Section -->
+                    <section id="projects" class="dashboard-section-content active">
+                        <div class="section-header">
+                            <h2 class="section-title">My Projects</h2>
+                            <div class="section-filters">
+                                <select class="filter-select" id="projectStatusFilter">
+                                    <option value="all">All Statuses</option>
+                                    <option value="Recruiting">Recruiting</option>
+                                    <option value="Active">Active</option>
+                                    <option value="Completed">Completed</option>
+                                    <option value="On Hold">On Hold</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="loading-spinner" id="projectsLoading">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading projects...</p>
+                        </div>
+                        
+                        <div class="error-message" id="projectsError" style="display: none;">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p>Error loading projects. Please try again.</p>
+                            <button class="retry-button" id="retryProjectsBtn">Retry</button>
+                        </div>
+                        
+                        <div class="empty-state" id="noProjectsMessage" style="display: none;">
+                            <i class="fas fa-folder-open"></i>
+                            <h3>No Projects Found</h3>
+                            <p>You don't have any active research projects yet.</p>
+                            <button class="primary-action" id="emptyStateNewProjectBtn">Create Your First Project Request</button>
+                        </div>
+                        
+                        <div class="projects-list" id="projectsList" style="display: none;">
+                            <!-- Projects will be populated by JavaScript -->
+                        </div>
+                    </section>
+                    
+                    <!-- Requests Section -->
+                    <section id="requests" class="dashboard-section-content">
+                        <div class="section-header">
+                            <h2 class="section-title">Pending Requests</h2>
+                            <div class="section-filters">
+                                <select class="filter-select" id="requestTypeFilter">
+                                    <option value="all">All Types</option>
+                                    <option value="create">New Projects</option>
+                                    <option value="edit">Edit Requests</option>
+                                    <option value="delete">Delete Requests</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="loading-spinner" id="requestsLoading">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading requests...</p>
+                        </div>
+                        
+                        <div class="error-message" id="requestsError" style="display: none;">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p>Error loading requests. Please try again.</p>
+                            <button class="retry-button" id="retryRequestsBtn">Retry</button>
+                        </div>
+                        
+                        <div class="empty-state" id="noRequestsMessage" style="display: none;">
+                            <i class="fas fa-clipboard-list"></i>
+                            <h3>No Pending Requests</h3>
+                            <p>You don't have any pending project requests.</p>
+                        </div>
+                        
+                        <div class="requests-list" id="requestsList" style="display: none;">
+                            <!-- Requests will be populated by JavaScript -->
+                        </div>
+                    </section>
+                    
+                    <!-- Notifications Section -->
+                    <section id="notifications" class="dashboard-section-content">
+                        <div class="section-header">
+                            <h2 class="section-title">Notifications</h2>
+                            <button class="mark-all-read-button" id="markAllReadBtn">
+                                <i class="fas fa-check-double"></i> Mark all as read
+                            </button>
+                        </div>
+                        
+                        <div class="notifications-list">
+                            <div class="notification-item unread">
+                                <div class="notification-icon approved">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <h4 class="notification-title">Project Approved</h4>
+                                    <p class="notification-message">Your project "Cognitive Behavioral Therapy for OCD" has been approved and is now live.</p>
+                                    <span class="notification-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            
+                            <div class="notification-item unread">
+                                <div class="notification-icon rejected">
+                                    <i class="fas fa-times-circle"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <h4 class="notification-title">Edit Request Needs Revision</h4>
+                                    <p class="notification-message">Your request to edit "Digital Tech and Mental Wellbeing" requires additional information.</p>
+                                    <span class="notification-time">Yesterday</span>
+                                </div>
+                            </div>
+                            
+                            <div class="notification-item unread">
+                                <div class="notification-icon info">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <h4 class="notification-title">New Participant Interest</h4>
+                                    <p class="notification-message">3 new participants have expressed interest in your "Music Therapy for Adult ADHD" study.</p>
+                                    <span class="notification-time">2 days ago</span>
+                                </div>
+                            </div>
+                            
+                            <div class="notification-item">
+                                <div class="notification-icon approved">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <h4 class="notification-title">Account Approved</h4>
+                                    <p class="notification-message">Your researcher account has been approved. You can now submit project proposals.</p>
+                                    <span class="notification-time">1 week ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Project Request Modal -->
+    <div class="modal" id="newProjectModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">New Project Request</h3>
+                    <button class="close-button" id="closeNewProjectModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="newProjectForm">
+                        <div class="form-group">
+                            <label for="projectTitle">Project Title</label>
+                            <input type="text" id="projectTitle" name="title" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="projectDescription">Short Description</label>
+                            <textarea id="projectDescription" name="description" class="form-control" rows="3" required></textarea>
+                            <small class="form-text">Brief summary of your project (max 200 characters)</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="projectFullDescription">Full Description</label>
+                            <textarea id="projectFullDescription" name="fullDescription" class="form-control" rows="5" required></textarea>
+                            <small class="form-text">Detailed description of your research project</small>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="projectType">Type</label>
+                                <select id="projectType" name="type" class="form-control" required>
+                                    <option value="" disabled selected>Select type</option>
+                                    <option value="clinical">Clinical</option>
+                                    <option value="observational">Observational</option>
+                                    <option value="survey">Survey</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="projectLocation">Location</label>
+                                <input type="text" id="projectLocation" name="location" class="form-control" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="projectDuration">Duration</label>
+                                <input type="text" id="projectDuration" name="duration" class="form-control" required>
+                                <small class="form-text">e.g., "8 weeks", "6 months"</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="projectStartDate">Start Date</label>
+                                <input type="text" id="projectStartDate" name="startDate" class="form-control" required>
+                                <small class="form-text">e.g., "June 15, 2025" or "Immediate"</small>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="projectGender">Target Gender</label>
+                                <select id="projectGender" name="gender" class="form-control" required>
+                                    <option value="all">All genders</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="projectAgeRange">Age Range</label>
+                                <select id="projectAgeRange" name="ageRange" class="form-control" required>
+                                    <option value="all">All ages</option>
+                                    <option value="18-25">18-25</option>
+                                    <option value="26-35">26-35</option>
+                                    <option value="36-45">36-45</option>
+                                    <option value="46+">46+</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="projectCenter">Psychiatric Center</label>
+                            <select id="projectCenter" name="center" class="form-control" required>
+                                <option value="" disabled selected>Select center</option>
+                                <option value="Børne- og Ungdomspsykiatrisk Center">Børne- og Ungdomspsykiatrisk Center</option>
+                                <option value="Psykiatrisk Center Amager">Psykiatrisk Center Amager</option>
+                                <option value="Psykiatrisk Center Ballerup">Psykiatrisk Center Ballerup</option>
+                                <option value="Psykiatrisk Center Bornholm">Psykiatrisk Center Bornholm</option>
+                                <option value="Psykiatrisk Center Glostrup">Psykiatrisk Center Glostrup</option>
+                                <option value="Psykiatrisk Center København">Psykiatrisk Center København</option>
+                                <option value="Psykiatrisk Center Nordsjælland">Psykiatrisk Center Nordsjælland</option>
+                                <option value="Psykiatrisk Center Sct. Hans">Psykiatrisk Center Sct. Hans</option>
+                                <option value="Psykiatrisk Center Stolpegård">Psykiatrisk Center Stolpegård</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group" id="criteriaContainer">
+                            <label>Eligibility Criteria</label>
+                            <div class="criteria-list">
+                                <div class="criteria-item">
+                                    <input type="text" name="criteria[]" class="form-control" placeholder="Enter a criterion" required>
+                                    <button type="button" class="remove-criterion-btn"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                            <button type="button" id="addCriterionBtn" class="add-button">
+                                <i class="fas fa-plus"></i> Add Criterion
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="secondary-button" id="cancelNewProjectBtn">Cancel</button>
+                    <button type="button" class="primary-button" id="submitNewProjectBtn">Submit Request</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Actions Modal -->
+    <div class="modal" id="projectActionsModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="projectActionsTitle">Project Actions</h3>
+                    <button class="close-button" id="closeProjectActionsModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="project-actions">
+                        <button class="action-btn edit-btn" id="requestEditBtn">
+                            <i class="fas fa-edit"></i>
+                            <span>Request Edit</span>
+                            <p class="action-description">Submit changes for admin approval</p>
+                        </button>
+                        
+                        <button class="action-btn delete-btn" id="requestDeleteBtn">
+                            <i class="fas fa-trash-alt"></i>
+                            <span>Request Deletion</span>
+                            <p class="action-description">Request project removal</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Request Delete Modal -->
+    <div class="modal" id="deleteRequestModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Request Project Deletion</h3>
+                    <button class="close-button" id="closeDeleteRequestModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert warning-alert">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>This will request an administrator to delete this project.</span>
+                    </div>
+                    
+                    <form id="deleteRequestForm">
+                        <div class="form-group">
+                            <label for="deleteReason">Reason for deletion request</label>
+                            <textarea id="deleteReason" name="reason" class="form-control" rows="4" required></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="secondary-button" id="cancelDeleteRequestBtn">Cancel</button>
+                    <button type="button" class="danger-button" id="submitDeleteRequestBtn">Submit Delete Request</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">Region H Psykiatri</div>
+                <p class="company-info">Region H Psykiatri</p>
+                <p class="company-info">CVR: 12345678</p>
+                <p class="company-info">contact@regionhpsykiatri.com</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-title">Navigate</h3>
+                <div class="footer-links">
+                    <a href="/HTML/home.html" class="footer-link">Home</a>
+                    <a href="/HTML/home.html#projects" class="footer-link">Projects</a>
+                    <a href="#" class="footer-link">Testimonials</a>
+                    <a href="/HTML/faq.html" class="footer-link">FAQ</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-title">About</h3>
+                <div class="footer-links">
+                    <a href="/HTML/about.html" class="footer-link">About Us</a>
+                    <a href="/HTML/contact.html" class="footer-link">Contact</a>
+                    <a href="/HTML/researcher/login.html" class="footer-link">For Researchers</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <p class="copyright">© 2025 Region H Psykiatri. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/JS/home.js"></script>
+    <script src="/JS/researcher/dashboard.js"></script>
+</body>
+</html>

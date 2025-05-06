@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Researcher Registration - Region H Psykiatri</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/CSS/home.css">
+    <link rel="stylesheet" href="/CSS/researcher/login.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="/Sources/Psykiatrimaerke_Twitter.png" alt="Region H Psykiatri Logo" class="logo-img">
+                <span class="logo-text">Region H Psykiatri</span>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-menu">
+                <a href="/HTML/home.html" class="nav-item">Home</a>
+                <a href="/HTML/home.html#projects" class="nav-item">Projects</a>
+                <a href="#" class="nav-item">Testimonials</a>
+                <a href="/HTML/faq.html" class="nav-item">FAQ</a>
+                <a href="/HTML/about.html" class="nav-item">About Us</a>
+                <a href="/HTML/contact.html" class="nav-item">Contact</a>
+                <a href="/HTML/researcher/login.html" class="nav-item researcher-link active">For Researchers</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Registration Section -->
+    <section class="login-section registration-section">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/HTML/home.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="/HTML/researcher/login.html">Researcher Login</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Register</span>
+            </div>
+            
+            <div class="login-container">
+                <div class="login-card registration-card">
+                    <h2 class="card-title">Researcher Registration</h2>
+                    <p class="card-subtitle">Create an account to manage your research projects</p>
+                    
+                    <div class="alert error-alert" id="registerError" style="display: none;">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span class="alert-message">Registration error message</span>
+                    </div>
+                    
+                    <div class="alert success-alert" id="registerSuccess" style="display: none;">
+                        <i class="fas fa-check-circle"></i>
+                        <span class="alert-message">Registration successful! You can now login.</span>
+                    </div>
+                    
+                    <form id="registrationForm" class="login-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName" class="form-label">Full Name</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-user icon"></i>
+                                    <input type="text" id="fullName" name="fullName" class="form-input" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-envelope icon"></i>
+                                    <input type="email" id="email" name="email" class="form-input" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="institution" class="form-label">Institution</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-building icon"></i>
+                                <input type="text" id="institution" name="institution" class="form-input" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="registerUsername" class="form-label">Username</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-user-circle icon"></i>
+                                <input type="text" id="registerUsername" name="username" class="form-input" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="registerPassword" class="form-label">Password</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-lock icon"></i>
+                                    <input type="password" id="registerPassword" name="password" class="form-input" required>
+                                </div>
+                                <small class="form-note">Must be at least 8 characters with mixed case letters and at least one number</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-lock icon"></i>
+                                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-input" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="terms-group">
+                            <input type="checkbox" id="termsAgree" name="termsAgree" required>
+                            <label for="termsAgree">I agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a></label>
+                        </div>
+                        
+                        <button type="submit" class="login-button">
+                            <span>Register</span>
+                            <i class="fas fa-user-plus"></i>
+                        </button>
+                    </form>
+                    
+                    <div class="register-prompt">
+                        <p>Already have an account?</p>
+                        <a href="/HTML/researcher/login.html" class="register-link">Log in instead</a>
+                    </div>
+                </div>
+                
+                <div class="login-info-card">
+                    <h3 class="info-title">Join as a Researcher</h3>
+                    <p class="info-description">Benefits of becoming a registered researcher:</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Submit research project proposals</li>
+                        <li><i class="fas fa-check"></i> Access a dedicated participant recruitment platform</li>
+                        <li><i class="fas fa-check"></i> Manage your research projects in one place</li>
+                        <li><i class="fas fa-check"></i> Request edits to project listings</li>
+                        <li><i class="fas fa-check"></i> Track project status and participant engagement</li>
+                    </ul>
+                    <div class="info-note">
+                        <p>Note: All researcher accounts require approval by our administrative team. This process typically takes 1-2 business days.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">Region H Psykiatri</div>
+                <p class="company-info">Region H Psykiatri</p>
+                <p class="company-info">CVR: 12345678</p>
+                <p class="company-info">contact@regionhpsykiatri.com</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-title">Navigate</h3>
+                <div class="footer-links">
+                    <a href="/HTML/home.html" class="footer-link">Home</a>
+                    <a href="/HTML/home.html#projects" class="footer-link">Projects</a>
+                    <a href="#" class="footer-link">Testimonials</a>
+                    <a href="/HTML/faq.html" class="footer-link">FAQ</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-title">About</h3>
+                <div class="footer-links">
+                    <a href="/HTML/about.html" class="footer-link">About Us</a>
+                    <a href="/HTML/contact.html" class="footer-link">Contact</a>
+                    <a href="/HTML/researcher/login.html" class="footer-link">For Researchers</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <p class="copyright">© 2025 Region H Psykiatri. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/JS/home.js"></script>
+    <script src="/JS/researcher/register.js"></script>
+</body>
+</html>

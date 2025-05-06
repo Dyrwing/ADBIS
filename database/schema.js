@@ -25,7 +25,9 @@ const createTables = function() {
         status TEXT,
         participants_needed INTEGER,
         participants_enrolled INTEGER,
-        center TEXT NOT NULL
+        center TEXT NOT NULL,
+        researcher_id INTEGER,
+        FOREIGN KEY (researcher_id) REFERENCES researchers (id)
       )
     `, (err) => {
       if (err) {
@@ -34,72 +36,114 @@ const createTables = function() {
         return;
       }
 
-      // Create criteria table with foreign key to projects
+      // Create researchers table
       db.run(`
-        CREATE TABLE IF NOT EXISTS criteria (
+        CREATE TABLE IF NOT EXISTS researchers (
           id INTEGER PRIMARY KEY,
-          project_id INTEGER NOT NULL,
-          criterion TEXT NOT NULL,
-          FOREIGN KEY (project_id) REFERENCES projects (id) ON DELETE CASCADE
+          username TEXT NOT NULL UNIQUE,
+          password TEXT NOT NULL,
+          full_name TEXT NOT NULL,
+          email TEXT NOT NULL UNIQUE,
+          institution TEXT NOT NULL,
+          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
       `, (err) => {
         if (err) {
-          console.error('Error creating criteria table:', err.message);
+          console.error('Error creating researchers table:', err.message);
           reject(err);
           return;
         }
 
-        // Create diagnoses table with foreign key to projects
+        // Create project_requests table for managing researcher requests
         db.run(`
-          CREATE TABLE IF NOT EXISTS diagnoses (
+          CREATE TABLE IF NOT EXISTS project_requests (
             id INTEGER PRIMARY KEY,
-            project_id INTEGER NOT NULL,
-            diagnosis TEXT NOT NULL,
+            researcher_id INTEGER NOT NULL,
+            project_id INTEGER, 
+            request_type TEXT NOT NULL, 
+            status TEXT NOT NULL DEFAULT 'pending',
+            request_data TEXT NOT NULL, 
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            updated_at TIMESTAMP,
+            admin_notes TEXT,
+            FOREIGN KEY (researcher_id) REFERENCES researchers (id),
             FOREIGN KEY (project_id) REFERENCES projects (id) ON DELETE CASCADE
           )
         `, (err) => {
           if (err) {
-            console.error('Error creating diagnoses table:', err.message);
+            console.error('Error creating project_requests table:', err.message);
             reject(err);
             return;
           }
 
-          // Create timeline table with foreign key to projects
+          // Create criteria table with foreign key to projects
           db.run(`
-            CREATE TABLE IF NOT EXISTS timeline (
+            CREATE TABLE IF NOT EXISTS criteria (
               id INTEGER PRIMARY KEY,
               project_id INTEGER NOT NULL,
-              title TEXT NOT NULL,
-              date TEXT NOT NULL,
-              description TEXT NOT NULL,
+              criterion TEXT NOT NULL,
               FOREIGN KEY (project_id) REFERENCES projects (id) ON DELETE CASCADE
             )
           `, (err) => {
             if (err) {
-              console.error('Error creating timeline table:', err.message);
+              console.error('Error creating criteria table:', err.message);
               reject(err);
               return;
             }
 
-            // Create team table with foreign key to projects
+            // Create diagnoses table with foreign key to projects
             db.run(`
-              CREATE TABLE IF NOT EXISTS team (
+              CREATE TABLE IF NOT EXISTS diagnoses (
                 id INTEGER PRIMARY KEY,
                 project_id INTEGER NOT NULL,
-                name TEXT NOT NULL,
-                role TEXT NOT NULL,
-                photo TEXT,
+                diagnosis TEXT NOT NULL,
                 FOREIGN KEY (project_id) REFERENCES projects (id) ON DELETE CASCADE
               )
             `, (err) => {
               if (err) {
-                console.error('Error creating team table:', err.message);
+                console.error('Error creating diagnoses table:', err.message);
                 reject(err);
                 return;
               }
 
-              console.log('All tables created successfully');
-              resolve();
+              // Create timeline table with foreign key to projects
+              db.run(`
+                CREATE TABLE IF NOT EXISTS timeline (
+                  id INTEGER PRIMARY KEY,
+                  project_id INTEGER NOT NULL,
+                  title TEXT NOT NULL,
+                  date TEXT NOT NULL,
+                  description TEXT NOT NULL,
+                  FOREIGN KEY (project_id) REFERENCES projects (id) ON DELETE CASCADE
+                )
+              `, (err) => {
+                if (err) {
+                  console.error('Error creating timeline table:', err.message);
+                  reject(err);
+                  return;
+                }
+
+                // Create team table with foreign key to projects
+                db.run(`
+                  CREATE TABLE IF NOT EXISTS team (
+                    id INTEGER PRIMARY KEY,
+                    project_id INTEGER NOT NULL,
+                    name TEXT NOT NULL,
+                    role TEXT NOT NULL,
+                    photo TEXT,
+                    FOREIGN KEY (project_id) REFERENCES projects (id) ON DELETE CASCADE
+                  )
+                `, (err) => {
+                  if (err) {
+                    console.error('Error creating team table:', err.message);
+                    reject(err);
+                    return;
+                  }
+
+                  console.log('All tables created successfully');
+                  resolve();
+                });
+              });
             });
           });
         });

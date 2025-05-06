@@ -1,6 +1,28 @@
 const express = require('express');
 const db = require('../database/db');
 const router = express.Router();
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
+// Secret key for JWT signing
+const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret_key';
+
+// Middleware to verify researcher JWT
+const verifyResearcherToken = (req, res, next) => {
+  const token = req.headers['authorization']?.split(' ')[1];
+  
+  if (!token) {
+    return res.status(401).json({ error: 'Access denied. No token provided.' });
+  }
+
+  try {
+    const verified = jwt.verify(token, JWT_SECRET);
+    req.researcher = verified;
+    next();
+  } catch (error) {
+    res.status(400).json({ error: 'Invalid token' });
+  }
+};
 
 // GET all projects with basic info
 router.get('/projects', (req, res) => {
@@ -238,6 +260,299 @@ router.get('/filter-options', (req, res) => {
       });
     });
   });
+});
+
+// RESEARCHER ROUTES
+
+// Register a new researcher
+router.post('/researchers/register', async (req, res) => {
+  try {
+    const { username, password, fullName, email, institution } = req.body;
+    
+    if (!username || !password || !fullName || !email || !institution) {
+      return res.status(400).json({ error: 'All fields are required' });
+    }
+    
+    // Check if username or email already exists
+    db.get('SELECT * FROM researchers WHERE username = ? OR email = ?', [username, email], async (err, researcher) => {
+      if (err) {
+        console.error('Database error:', err.message);
+        return res.status(500).json({ error: 'Database error' });
+      }
+      
+      if (researcher) {
+        return res.status(400).json({ error: 'Username or email already exists' });
+      }
+      
+      // Hash the password
+      const hashedPassword = await bcrypt.hash(password, 10);
+      
+      // Insert new researcher
+      db.run(
+        'INSERT INTO researchers (username, password, full_name, email, institution) VALUES (?, ?, ?, ?, ?)',
+        [username, hashedPassword, fullName, email, institution],
+        function(err) {
+          if (err) {
+            console.error('Error creating researcher account:', err.message);
+            return res.status(500).json({ error: 'Database error' });
+          }
+          
+          // Success
+          res.status(201).json({ 
+            message: 'Researcher account created successfully',
+            researcherId: this.lastID 
+          });
+        }
+      );
+    });
+  } catch (error) {
+    console.error('Error in researcher registration:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Login for researchers
+router.post('/researchers/login', (req, res) => {
+  try {
+    const { username, password } = req.body;
+    
+    if (!username || !password) {
+      return res.status(400).json({ error: 'Username and password are required' });
+    }
+    
+    // Find researcher by username
+    db.get('SELECT * FROM researchers WHERE username = ?', [username], async (err, researcher) => {
+      if (err) {
+        console.error('Database error:', err.message);
+        return res.status(500).json({ error: 'Database error' });
+      }
+      
+      if (!researcher) {
+        return res.status(400).json({ error: 'Invalid username or password' });
+      }
+      
+      // Compare passwords
+      const validPassword = await bcrypt.compare(password, researcher.password);
+      if (!validPassword) {
+        return res.status(400).json({ error: 'Invalid username or password' });
+      }
+      
+      // Create and sign JWT
+      const token = jwt.sign(
+        { id: researcher.id, username: researcher.username }, 
+        JWT_SECRET,
+        { expiresIn: '24h' }
+      );
+      
+      res.json({ 
+        token,
+        researcher: {
+          id: researcher.id,
+          username: researcher.username,
+          fullName: researcher.full_name,
+          email: researcher.email,
+          institution: researcher.institution
+        }
+      });
+    });
+  } catch (error) {
+    console.error('Error in researcher login:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Get researcher profile
+router.get('/researchers/profile', verifyResearcherToken, (req, res) => {
+  db.get('SELECT id, username, full_name, email, institution, created_at FROM researchers WHERE id = ?', 
+    [req.researcher.id], 
+    (err, researcher) => {
+      if (err) {
+        console.error('Database error:', err.message);
+        return res.status(500).json({ error: 'Database error' });
+      }
+      
+      if (!researcher) {
+        return res.status(404).json({ error: 'Researcher not found' });
+      }
+      
+      res.json({
+        id: researcher.id,
+        username: researcher.username,
+        fullName: researcher.full_name,
+        email: researcher.email,
+        institution: researcher.institution,
+        createdAt: researcher.created_at
+      });
+    }
+  );
+});
+
+// Get researcher's projects
+router.get('/researchers/projects', verifyResearcherToken, (req, res) => {
+  db.all('SELECT * FROM projects WHERE researcher_id = ?', 
+    [req.researcher.id], 
+    (err, projects) => {
+      if (err) {
+        console.error('Database error:', err.message);
+        return res.status(500).json({ error: 'Database error' });
+      }
+      
+      // Format projects to match frontend expectations
+      const formattedProjects = projects.map(project => ({
+        id: project.id,
+        title: project.title,
+        description: project.description,
+        type: project.type,
+        location: project.location,
+        duration: project.duration,
+        startDate: project.start_date,
+        status: project.status
+      }));
+      
+      res.json(formattedProjects);
+    }
+  );
+});
+
+// Get researcher's project requests
+router.get('/researchers/project-requests', verifyResearcherToken, (req, res) => {
+  db.all(`
+    SELECT pr.*, p.title as project_title 
+    FROM project_requests pr
+    LEFT JOIN projects p ON pr.project_id = p.id
+    WHERE pr.researcher_id = ?
+    ORDER BY pr.created_at DESC`,
+    [req.researcher.id], 
+    (err, requests) => {
+      if (err) {
+        console.error('Database error:', err.message);
+        return res.status(500).json({ error: 'Database error' });
+      }
+      
+      res.json(requests);
+    }
+  );
+});
+
+// Submit a new project request (create)
+router.post('/researchers/project-requests', verifyResearcherToken, (req, res) => {
+  try {
+    const { projectData } = req.body;
+    
+    if (!projectData) {
+      return res.status(400).json({ error: 'Project data is required' });
+    }
+    
+    // Store the request in the database
+    db.run(
+      'INSERT INTO project_requests (researcher_id, request_type, request_data) VALUES (?, ?, ?)',
+      [req.researcher.id, 'create', JSON.stringify(projectData)],
+      function(err) {
+        if (err) {
+          console.error('Error creating project request:', err.message);
+          return res.status(500).json({ error: 'Database error' });
+        }
+        
+        res.status(201).json({
+          message: 'Project creation request submitted successfully',
+          requestId: this.lastID
+        });
+      }
+    );
+  } catch (error) {
+    console.error('Error in project request creation:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Submit an edit project request
+router.post('/researchers/project-requests/edit/:projectId', verifyResearcherToken, (req, res) => {
+  try {
+    const { projectId } = req.params;
+    const { projectData } = req.body;
+    
+    if (!projectData) {
+      return res.status(400).json({ error: 'Project data is required' });
+    }
+    
+    // Check if project belongs to researcher
+    db.get('SELECT * FROM projects WHERE id = ? AND researcher_id = ?', 
+      [projectId, req.researcher.id],
+      (err, project) => {
+        if (err) {
+          console.error('Database error:', err.message);
+          return res.status(500).json({ error: 'Database error' });
+        }
+        
+        if (!project) {
+          return res.status(404).json({ error: 'Project not found or not authorized' });
+        }
+        
+        // Store the edit request
+        db.run(
+          'INSERT INTO project_requests (researcher_id, project_id, request_type, request_data) VALUES (?, ?, ?, ?)',
+          [req.researcher.id, projectId, 'edit', JSON.stringify(projectData)],
+          function(err) {
+            if (err) {
+              console.error('Error creating edit request:', err.message);
+              return res.status(500).json({ error: 'Database error' });
+            }
+            
+            res.status(201).json({
+              message: 'Project edit request submitted successfully',
+              requestId: this.lastID
+            });
+          }
+        );
+      }
+    );
+  } catch (error) {
+    console.error('Error in edit request creation:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Submit a delete project request
+router.post('/researchers/project-requests/delete/:projectId', verifyResearcherToken, (req, res) => {
+  try {
+    const { projectId } = req.params;
+    const { reason } = req.body;
+    
+    // Check if project belongs to researcher
+    db.get('SELECT * FROM projects WHERE id = ? AND researcher_id = ?', 
+      [projectId, req.researcher.id],
+      (err, project) => {
+        if (err) {
+          console.error('Database error:', err.message);
+          return res.status(500).json({ error: 'Database error' });
+        }
+        
+        if (!project) {
+          return res.status(404).json({ error: 'Project not found or not authorized' });
+        }
+        
+        // Store the delete request
+        db.run(
+          'INSERT INTO project_requests (researcher_id, project_id, request_type, request_data) VALUES (?, ?, ?, ?)',
+          [req.researcher.id, projectId, 'delete', JSON.stringify({ reason })],
+          function(err) {
+            if (err) {
+              console.error('Error creating delete request:', err.message);
+              return res.status(500).json({ error: 'Database error' });
+            }
+            
+            res.status(201).json({
+              message: 'Project deletion request submitted successfully',
+              requestId: this.lastID
+            });
+          }
+        );
+      }
+    );
+  } catch (error) {
+    console.error('Error in delete request creation:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });
 
 // Make sure the router is exported correctly
