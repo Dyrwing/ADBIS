@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Researcher Registration - Region H Psykiatri</title>
+    <title>Forsker Registrering - Region H Psykiatri</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/CSS/home.css">
@@ -20,48 +20,44 @@
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
-            <nav class="nav-menu">
-                <a href="/HTML/home.html" class="nav-item">Home</a>
-                <a href="/HTML/home.html#projects" class="nav-item">Projects</a>
-                <a href="#" class="nav-item">Testimonials</a>
+            <nav class="nav-menu">                <a href="/HTML/home.html" class="nav-item">Forside</a>
+                <a href="/HTML/home.html#projects" class="nav-item">Projekter</a>
+                <a href="#" class="nav-item">Anmeldelser</a>
                 <a href="/HTML/faq.html" class="nav-item">FAQ</a>
-                <a href="/HTML/about.html" class="nav-item">About Us</a>
-                <a href="/HTML/contact.html" class="nav-item">Contact</a>
-                <a href="/HTML/researcher/login.html" class="nav-item researcher-link active">For Researchers</a>
+                <a href="/HTML/about.html" class="nav-item">Om Os</a>
+                <a href="/HTML/contact.html" class="nav-item">Kontakt</a>
+                <a href="/HTML/researcher/login.html" class="nav-item researcher-link active">For Forskere</a>
             </nav>
         </div>
     </header>
 
     <!-- Registration Section -->
     <section class="login-section registration-section">
-        <div class="container">
-            <div class="breadcrumb">
-                <a href="/HTML/home.html">Home</a>
+        <div class="container">            <div class="breadcrumb">
+                <a href="/HTML/home.html">Forside</a>
                 <i class="fas fa-chevron-right"></i>
-                <a href="/HTML/researcher/login.html">Researcher Login</a>
+                <a href="/HTML/researcher/login.html">Forsker Login</a>
                 <i class="fas fa-chevron-right"></i>
-                <span>Register</span>
+                <span>Registrering</span>
             </div>
             
             <div class="login-container">
-                <div class="login-card registration-card">
-                    <h2 class="card-title">Researcher Registration</h2>
-                    <p class="card-subtitle">Create an account to manage your research projects</p>
+                <div class="login-card registration-card">                    <h2 class="card-title">Forsker Registrering</h2>
+                    <p class="card-subtitle">Opret en konto for at administrere dine forskningsprojekter</p>
                     
                     <div class="alert error-alert" id="registerError" style="display: none;">
                         <i class="fas fa-exclamation-circle"></i>
-                        <span class="alert-message">Registration error message</span>
+                        <span class="alert-message">Registreringsfejl</span>
                     </div>
                     
                     <div class="alert success-alert" id="registerSuccess" style="display: none;">
                         <i class="fas fa-check-circle"></i>
-                        <span class="alert-message">Registration successful! You can now login.</span>
+                        <span class="alert-message">Registrering gennemført! Du kan nu logge ind.</span>
                     </div>
                     
                     <form id="registrationForm" class="login-form">
                         <div class="form-row">
-                            <div class="form-group">
-                                <label for="fullName" class="form-label">Full Name</label>
+                            <div class="form-group">                                <label for="fullName" class="form-label">Fulde navn</label>
                                 <div class="input-with-icon">
                                     <i class="fas fa-user icon"></i>
                                     <input type="text" id="fullName" name="fullName" class="form-input" required>
@@ -69,7 +65,7 @@
                             </div>
                             
                             <div class="form-group">
-                                <label for="email" class="form-label">Email</label>
+                                <label for="email" class="form-label">E-mailadresse</label>
                                 <div class="input-with-icon">
                                     <i class="fas fa-envelope icon"></i>
                                     <input type="email" id="email" name="email" class="form-input" required>
@@ -86,7 +82,7 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="registerUsername" class="form-label">Username</label>
+                            <label for="registerUsername" class="form-label">Brugernavn</label>
                             <div class="input-with-icon">
                                 <i class="fas fa-user-circle icon"></i>
                                 <input type="text" id="registerUsername" name="username" class="form-input" required>
@@ -94,53 +90,49 @@
                         </div>
                         
                         <div class="form-row">
-                            <div class="form-group">
-                                <label for="registerPassword" class="form-label">Password</label>
+                            <div class="form-group">                                <label for="registerPassword" class="form-label">Adgangskode</label>
                                 <div class="input-with-icon">
                                     <i class="fas fa-lock icon"></i>
                                     <input type="password" id="registerPassword" name="password" class="form-input" required>
                                 </div>
-                                <small class="form-note">Must be at least 8 characters with mixed case letters and at least one number</small>
+                                <small class="form-note">Skal være mindst 8 tegn med både store og små bogstaver samt mindst ét tal</small>
                             </div>
                             
                             <div class="form-group">
-                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                <label for="confirmPassword" class="form-label">Bekræft adgangskode</label>
                                 <div class="input-with-icon">
                                     <i class="fas fa-lock icon"></i>
                                     <input type="password" id="confirmPassword" name="confirmPassword" class="form-input" required>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="terms-group">
+                          <div class="terms-group">
                             <input type="checkbox" id="termsAgree" name="termsAgree" required>
-                            <label for="termsAgree">I agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a></label>
+                            <label for="termsAgree">Jeg accepterer <a href="#">Vilkår og betingelser</a> og <a href="#">Privatlivspolitik</a></label>
                         </div>
                         
                         <button type="submit" class="login-button">
-                            <span>Register</span>
+                            <span>Registrer</span>
                             <i class="fas fa-user-plus"></i>
                         </button>
                     </form>
-                    
-                    <div class="register-prompt">
-                        <p>Already have an account?</p>
-                        <a href="/HTML/researcher/login.html" class="register-link">Log in instead</a>
+                      <div class="register-prompt">
+                        <p>Har du allerede en konto?</p>
+                        <a href="/HTML/researcher/login.html" class="register-link">Log ind i stedet</a>
                     </div>
                 </div>
                 
-                <div class="login-info-card">
-                    <h3 class="info-title">Join as a Researcher</h3>
-                    <p class="info-description">Benefits of becoming a registered researcher:</p>
+                <div class="login-info-card">                    <h3 class="info-title">Bliv forskertilknyttet</h3>
+                    <p class="info-description">Fordele ved at blive registreret forsker:</p>
                     <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Submit research project proposals</li>
-                        <li><i class="fas fa-check"></i> Access a dedicated participant recruitment platform</li>
-                        <li><i class="fas fa-check"></i> Manage your research projects in one place</li>
-                        <li><i class="fas fa-check"></i> Request edits to project listings</li>
-                        <li><i class="fas fa-check"></i> Track project status and participant engagement</li>
+                        <li><i class="fas fa-check"></i> Indsend forslag til forskningsprojekter</li>
+                        <li><i class="fas fa-check"></i> Få adgang til en dedikeret platform for rekruttering af deltagere</li>
+                        <li><i class="fas fa-check"></i> Administrer dine forskningsprojekter samlet</li>
+                        <li><i class="fas fa-check"></i> Anmod om redigering af projektopslag</li>
+                        <li><i class="fas fa-check"></i> Følg projektstatus og deltagerengagement</li>
                     </ul>
                     <div class="info-note">
-                        <p>Note: All researcher accounts require approval by our administrative team. This process typically takes 1-2 business days.</p>
+                        <p>Bemærk: Alle forskerkonti kræver godkendelse fra vores administrative team. Denne proces tager typisk 1-2 arbejdsdage.</p>
                     </div>
                 </div>
             </div>
@@ -161,27 +153,26 @@
                     <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
-            <div class="footer-col">
-                <h3 class="footer-title">Navigate</h3>
+            <div class="footer-col">                <h3 class="footer-title">Navigation</h3>
                 <div class="footer-links">
-                    <a href="/HTML/home.html" class="footer-link">Home</a>
-                    <a href="/HTML/home.html#projects" class="footer-link">Projects</a>
-                    <a href="#" class="footer-link">Testimonials</a>
+                    <a href="/HTML/home.html" class="footer-link">Forside</a>
+                    <a href="/HTML/home.html#projects" class="footer-link">Projekter</a>
+                    <a href="#" class="footer-link">Anmeldelser</a>
                     <a href="/HTML/faq.html" class="footer-link">FAQ</a>
                 </div>
             </div>
             <div class="footer-col">
-                <h3 class="footer-title">About</h3>
+                <h3 class="footer-title">Om</h3>
                 <div class="footer-links">
-                    <a href="/HTML/about.html" class="footer-link">About Us</a>
-                    <a href="/HTML/contact.html" class="footer-link">Contact</a>
-                    <a href="/HTML/researcher/login.html" class="footer-link">For Researchers</a>
-                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="/HTML/about.html" class="footer-link">Om Os</a>
+                    <a href="/HTML/contact.html" class="footer-link">Kontakt</a>
+                    <a href="/HTML/researcher/login.html" class="footer-link">For Forskere</a>
+                    <a href="#" class="footer-link">Privatlivspolitik</a>
                 </div>
             </div>
         </div>
         <div class="container">
-            <p class="copyright">© 2025 Region H Psykiatri. All rights reserved.</p>
+            <p class="copyright">© 2025 Region H Psykiatri. Alle rettigheder forbeholdes.</p>
         </div>
     </footer>
 

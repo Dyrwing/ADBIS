@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+<head>    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Region H Psykiatri - Psychiatric Research Projects</title>
+    <title>Region H Psykiatri - Psykiatriske Forskningsprojekter</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/CSS/home.css">
@@ -17,15 +16,14 @@
             </div>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
-            </button>
-            <nav class="nav-menu">
-                <a href="#" class="nav-item">Home</a>
-                <a href="#projects" class="nav-item">Projects</a>
-                <a href="#" class="nav-item">Testimonials</a>
+            </button>            <nav class="nav-menu">
+                <a href="#" class="nav-item">Forside</a>
+                <a href="#projects" class="nav-item">Projekter</a>
+                <a href="#" class="nav-item">Anmeldelser</a>
                 <a href="/HTML/faq.html" class="nav-item">FAQ</a>
-                <a href="/HTML/about.html" class="nav-item">About Us</a>
-                <a href="/HTML/contact.html" class="nav-item">Contact</a>
-                <a href="/HTML/researcher/login.html" class="nav-item researcher-link">For Researchers</a>
+                <a href="/HTML/about.html" class="nav-item">Om Os</a>
+                <a href="/HTML/contact.html" class="nav-item">Kontakt</a>
+                <a href="/HTML/researcher/login.html" class="nav-item researcher-link">For Forskere</a>
             </nav>
         </div>
     </header>
@@ -33,10 +31,10 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
-            <h1 class="hero-title">Join Psychiatric Research Projects and Make a Difference</h1>
-            <p class="hero-subtitle">Your participation helps advance mental health research and contributes to improving psychiatric care. Explore our available projects and start your research journey today.</p>
+            <h1 class="hero-title">Deltag i Psykiatriske Forskningsprojekter og Gør en Forskel</h1>
+            <p class="hero-subtitle">Din deltagelse hjælper med at fremme forskning i mental sundhed og bidrager til at forbedre psykiatrisk behandling. Udforsk vores tilgængelige projekter og begynd din forskningsrejse i dag.</p>
             <div class="action-buttons">
-                <a href="#projects" class="cta-button" id="exploreProjectsBtn">Explore Projects</a>
+                <a href="#projects" class="cta-button" id="exploreProjectsBtn">Udforsk Projekter</a>
             </div>
         </div>
     </section>
@@ -44,36 +42,35 @@
    <!-- Projects Section -->
 <section class="projects-section" id="projects">
     <div class="container">
-        <h2 class="section-title">Available Psychiatric Research Projects</h2>
+        <h2 class="section-title">Tilgængelige Psykiatriske Forskningsprojekter</h2>
         
         <div class="filters-container">
             <div class="filter-dropdown">
                 <button class="filter-button" data-filter="gender">
-                    <span class="filter-label">Gender:</span>
-                    <span class="selected-option" id="selectedGender">All</span>
+                    <span class="filter-label">Køn:</span>
+                    <span class="selected-option" id="selectedGender">Alle</span>
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="dropdown-menu">
-                    <div class="dropdown-option" data-value="all">All</div>
+                    <div class="dropdown-option" data-value="all">Alle</div>
                     <div class="dropdown-option multi-option" data-value="male">
-                        <span class="option-text">Male</span>
+                        <span class="option-text">Mand</span>
                         <span class="checkbox"><i class="fas fa-check"></i></span>
                     </div>
                     <div class="dropdown-option multi-option" data-value="female">
-                        <span class="option-text">Female</span>
+                        <span class="option-text">Kvinde</span>
                         <span class="checkbox"><i class="fas fa-check"></i></span>
                     </div>
                 </div>
             </div>
-            
-            <div class="filter-dropdown">
+              <div class="filter-dropdown">
                 <button class="filter-button" data-filter="age">
-                    <span class="filter-label">Age Range:</span>
-                    <span class="selected-option" id="selectedAge">All</span>
+                    <span class="filter-label">Aldersgruppe:</span>
+                    <span class="selected-option" id="selectedAge">Alle</span>
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="dropdown-menu">
-                    <div class="dropdown-option" data-value="all">All</div>
+                    <div class="dropdown-option" data-value="all">Alle</div>
                     <div class="dropdown-option multi-option" data-value="18-25">
                         <span class="option-text">18-25</span>
                         <span class="checkbox"><i class="fas fa-check"></i></span>
@@ -92,38 +89,36 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="filter-dropdown">
+              <div class="filter-dropdown">
                 <button class="filter-button" data-filter="type">
-                    <span class="filter-label">Study Type:</span>
-                    <span class="selected-option" id="selectedType">All</span>
+                    <span class="filter-label">Studietype:</span>
+                    <span class="selected-option" id="selectedType">Alle</span>
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="dropdown-menu">
-                    <div class="dropdown-option" data-value="all">All</div>
+                    <div class="dropdown-option" data-value="all">Alle</div>
                     <div class="dropdown-option multi-option" data-value="clinical">
-                        <span class="option-text">Clinical</span>
+                        <span class="option-text">Klinisk</span>
                         <span class="checkbox"><i class="fas fa-check"></i></span>
                     </div>
                     <div class="dropdown-option multi-option" data-value="observational">
-                        <span class="option-text">Observational</span>
+                        <span class="option-text">Observationelt</span>
                         <span class="checkbox"><i class="fas fa-check"></i></span>
                     </div>
                     <div class="dropdown-option multi-option" data-value="survey">
-                        <span class="option-text">Survey</span>
+                        <span class="option-text">Spørgeskema</span>
                         <span class="checkbox"><i class="fas fa-check"></i></span>
                     </div>
                 </div>
             </div>
-            
-            <div class="filter-dropdown">
+              <div class="filter-dropdown">
                 <button class="filter-button" data-filter="diagnosis">
-                    <span class="filter-label">Diagnosis:</span>
-                    <span class="selected-option" id="selectedDiagnosis">All</span>
+                    <span class="filter-label">Diagnose:</span>
+                    <span class="selected-option" id="selectedDiagnosis">Alle</span>
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="dropdown-menu">
-                    <div class="dropdown-option" data-value="all">All</div>
+                    <div class="dropdown-option" data-value="all">Alle</div>
                     <div class="dropdown-option multi-option" data-value="Hjerneskade">
                         <span class="option-text">Hjerneskade</span>
                         <span class="checkbox"><i class="fas fa-check"></i></span>
@@ -170,15 +165,14 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="filter-dropdown">
+              <div class="filter-dropdown">
                 <button class="filter-button" data-filter="center">
-                    <span class="filter-label">Psychiatric Center:</span>
-                    <span class="selected-option" id="selectedCenter">All</span>
+                    <span class="filter-label">Psykiatrisk Center:</span>
+                    <span class="selected-option" id="selectedCenter">Alle</span>
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="dropdown-menu">
-                    <div class="dropdown-option" data-value="all">All</div>
+                    <div class="dropdown-option" data-value="all">Alle</div>
                     <div class="dropdown-option multi-option" data-value="Børne- og Ungdomspsykiatrisk Center">
                         <span class="option-text">Børne- og Ungdomspsykiatrisk Center</span>
                         <span class="checkbox"><i class="fas fa-check"></i></span>
@@ -217,10 +211,9 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="filter-counters">
+              <div class="filter-counters">
                 <span class="results-count" id="resultsCount"></span>
-                <button id="clearFiltersButton" class="clear-filters-button" disabled>Clear Filters</button>
+                <button id="clearFiltersButton" class="clear-filters-button" disabled>Ryd Filtre</button>
             </div>
         </div>
         
@@ -243,28 +236,26 @@
                     <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
                 </div>
-            </div>
-            <div class="footer-col">
-                <h3 class="footer-title">Navigate</h3>
+            </div>            <div class="footer-col">
+                <h3 class="footer-title">Navigation</h3>
                 <div class="footer-links">
-                    <a href="#" class="footer-link">Home</a>
-                    <a href="#projects" class="footer-link">Projects</a>
-                    <a href="#" class="footer-link">Testimonials</a>
+                    <a href="#" class="footer-link">Forside</a>
+                    <a href="#projects" class="footer-link">Projekter</a>
+                    <a href="#" class="footer-link">Anmeldelser</a>
                     <a href="/HTML/faq.html" class="footer-link">FAQ</a>
                 </div>
             </div>
             <div class="footer-col">
-                <h3 class="footer-title">About</h3>
+                <h3 class="footer-title">Om</h3>
                 <div class="footer-links">
-                    <a href="/HTML/about.html" class="footer-link">About Us</a>
-                    <a href="/HTML/contact.html" class="footer-link">Contact</a>
-                    <a href="/HTML/researcher/login.html" class="footer-link">For Researchers</a>
-                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="/HTML/about.html" class="footer-link">Om Os</a>
+                    <a href="/HTML/contact.html" class="footer-link">Kontakt</a>
+                    <a href="/HTML/researcher/login.html" class="footer-link">For Forskere</a>
+                    <a href="#" class="footer-link">Privatlivspolitik</a>
                 </div>
             </div>
-        </div>
-        <div class="container">
-            <p class="copyright">© 2025 Region H Psykiatri. All rights reserved.</p>
+        </div>        <div class="container">
+            <p class="copyright">© 2025 Region H Psykiatri. Alle rettigheder forbeholdes.</p>
         </div>
     </footer>
 

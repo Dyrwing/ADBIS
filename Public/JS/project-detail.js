@@ -10,12 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Project container
     const projectDetailContainer = document.getElementById('projectDetailContainer');
-    
-    // Show loading state
+      // Show loading state
     projectDetailContainer.innerHTML = `
         <div class="project-detail-loading">
             <i class="fas fa-spinner fa-spin"></i>
-            <p>Loading project details...</p>
+            <p>Indlæser projektdetaljer...</p>
         </div>
     `;
     
@@ -36,27 +35,24 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Set up modal functionality
             setupModalFunctionality(project);
-            
-            // Set page title to project title
-            document.title = `${project.title} - Region H Psykiatri: Psychiatric Research`;
+              // Set page title to project title
+            document.title = `${project.title} - Region H Psykiatri: Psykiatrisk Forskning`;
         })
         .catch(error => {
             console.error('Error fetching project details:', error);
             
-            if (error.message === 'Project not found') {
-                projectDetailContainer.innerHTML = `
+            if (error.message === 'Project not found') {                projectDetailContainer.innerHTML = `
                     <div class="error-message">
-                        <h2>Project Not Found</h2>
-                        <p>The project you're looking for doesn't exist or may have been removed.</p>
-                        <a href="/HTML/home.html" class="back-button">Return to Projects</a>
+                        <h2>Projekt Ikke Fundet</h2>
+                        <p>Det projekt, du leder efter, findes ikke, eller det kan være blevet fjernet.</p>
+                        <a href="/HTML/home.html" class="back-button">Tilbage til Projekter</a>
                     </div>
                 `;
             } else {
-                projectDetailContainer.innerHTML = `
-                    <div class="error-message">
-                        <h2>Error Loading Project</h2>
-                        <p>There was a problem loading the project details. Please try again later.</p>
-                        <a href="/HTML/home.html" class="back-button">Return to Projects</a>
+                projectDetailContainer.innerHTML = `                    <div class="error-message">
+                        <h2>Fejl Ved Indlæsning af Projekt</h2>
+                        <p>Der opstod et problem ved indlæsning af projektdetaljerne. Prøv venligst igen senere.</p>
+                        <a href="/HTML/home.html" class="back-button">Tilbage til Projekter</a>
                     </div>
                 `;
             }
@@ -72,9 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             
             <div class="project-sections">
-                <div class="project-main-info">
-                    <div class="criteria-box">
-                        <h3 class="section-title">Eligibility Criteria</h3>
+                <div class="project-main-info">                    <div class="criteria-box">
+                        <h3 class="section-title">Deltagelseskriterier</h3>
                         <div class="criteria-grid">
                             ${project.criteria.map(criterion => `
                                 <div class="criteria-item-large">
@@ -84,9 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             `).join('')}
                         </div>
                     </div>
-                    
-                    <div class="info-section">
-                        <h3 class="section-title">Study Timeline</h3>
+                      <div class="info-section">
+                        <h3 class="section-title">Studieforløb</h3>
                         <div class="section-content">
                             ${project.timeline.map((item, index, array) => `
                                 <div class="timeline-item">
@@ -103,9 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             `).join('')}
                         </div>
                     </div>
-                    
-                    <div class="info-section">
-                        <h3 class="section-title">Research Team</h3>
+                      <div class="info-section">
+                        <h3 class="section-title">Forskningsteam</h3>
                         <div class="section-content">
                             ${project.team.map(member => `
                                 <div class="team-member">
@@ -120,62 +113,59 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 
-                <div class="project-side-info">
-                    <div class="details-box">
-                        <h3 class="section-title">Study Details</h3>
+                <div class="project-side-info">                    <div class="details-box">
+                        <h3 class="section-title">Studiedetaljer</h3>
                         <div class="detail-row">
                             <span class="detail-label">Type:</span>
                             <span class="detail-value">${project.type.charAt(0).toUpperCase() + project.type.slice(1)}</span>
                         </div>
                         <div class="detail-row">
-                            <span class="detail-label">Location:</span>
+                            <span class="detail-label">Lokation:</span>
                             <span class="detail-value">${project.location}</span>
                         </div>
                         <div class="detail-row">
-                            <span class="detail-label">Duration:</span>
+                            <span class="detail-label">Varighed:</span>
                             <span class="detail-value">${project.duration}</span>
                         </div>
                         <div class="detail-row">
-                            <span class="detail-label">Start Date:</span>
+                            <span class="detail-label">Startdato:</span>
                             <span class="detail-value">${project.startDate}</span>
                         </div>
                         <div class="detail-row">
-                            <span class="detail-label">Gender:</span>
-                            <span class="detail-value">${project.gender === 'all' ? 'All genders' : (project.gender === 'male' ? 'Male' : 'Female')}</span>
+                            <span class="detail-label">Køn:</span>
+                            <span class="detail-value">${project.gender === 'all' ? 'Alle køn' : (project.gender === 'male' ? 'Mand' : 'Kvinde')}</span>
                         </div>
                         <div class="detail-row">
-                            <span class="detail-label">Age Range:</span>
+                            <span class="detail-label">Aldersgruppe:</span>
                             <span class="detail-value">${project.ageRange}</span>
                         </div>
                         <div class="detail-row">
-                            <span class="detail-label">Compensation:</span>
+                            <span class="detail-label">Kompensation:</span>
                             <span class="detail-value">${project.compensation}</span>
                         </div>
                     </div>
-                    
-                    <div class="details-box">
-                        <h3 class="section-title">Contact Information</h3>
+                      <div class="details-box">
+                        <h3 class="section-title">Kontaktoplysninger</h3>
                         <div class="detail-row">
                             <span class="detail-label">Institution:</span>
                             <span class="detail-value">${project.institution}</span>
                         </div>
                         <div class="detail-row">
-                            <span class="detail-label">Lead Researcher:</span>
+                            <span class="detail-label">Forskningsleder:</span>
                             <span class="detail-value">${project.researchLead}</span>
                         </div>
                         <div class="detail-row">
-                            <span class="detail-label">Email:</span>
+                            <span class="detail-label">E-mail:</span>
                             <span class="detail-value">${project.contactEmail}</span>
                         </div>
                         <div class="detail-row">
-                            <span class="detail-label">Phone:</span>
+                            <span class="detail-label">Telefon:</span>
                             <span class="detail-value">${project.contactPhone}</span>
                         </div>
                     </div>
-                    
-                    <div class="cta-box">
-                        <p class="cta-text">Interested in participating?</p>
-                        <a href="#" class="apply-button" id="interestFormButton">Express Interest</a>
+                      <div class="cta-box">
+                        <p class="cta-text">Interesseret i at deltage?</p>
+                        <a href="#" class="apply-button" id="interestFormButton">Tilmeld interesse</a>
                     </div>
                 </div>
             </div>

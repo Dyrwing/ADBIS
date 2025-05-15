@@ -123,14 +123,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Function to render projects
         function renderProjects(projects) {
             projectsGrid.innerHTML = '';
-            
-            if (projects.length === 0) {
-                projectsGrid.innerHTML = '<p class="no-results">No matching projects found. Try adjusting your filters.</p>';
-                resultsCount.textContent = 'No results';
+              if (projects.length === 0) {
+                projectsGrid.innerHTML = '<p class="no-results">Ingen matchende projekter fundet. Prøv at justere dine filtre.</p>';
+                resultsCount.textContent = 'Ingen resultater';
                 return;
             }
             
-            resultsCount.textContent = `${projects.length} project${projects.length !== 1 ? 's' : ''} found`;
+            resultsCount.textContent = `${projects.length} projekt${projects.length !== 1 ? 'er' : ''} fundet`;
             
             // Add filtering class for animation
             projectsGrid.classList.add('filtering');
@@ -149,8 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <p class="project-description">${project.description}</p>
                         </div>
                         <div class="project-details">
-                            <div class="details-grid">
-                                <div class="detail-item">
+                            <div class="details-grid">                                <div class="detail-item">
                                     <i class="fas fa-flask detail-icon"></i>
                                     <div class="detail-text">
                                         <span class="detail-label">Type</span>
@@ -160,19 +158,18 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <div class="detail-item">
                                     <i class="fas fa-map-marker-alt detail-icon"></i>
                                     <div class="detail-text">
-                                        <span class="detail-label">Location</span>
+                                        <span class="detail-label">Lokation</span>
                                         <span class="detail-value">${project.location}</span>
                                     </div>
                                 </div>
                                 <div class="detail-item">
                                     <i class="fas fa-calendar-alt detail-icon"></i>
                                     <div class="detail-text">
-                                        <span class="detail-label">Duration</span>
+                                        <span class="detail-label">Varighed</span>
                                         <span class="detail-value">${project.duration}</span>
                                     </div>
                                 </div>
-                            </div>
-                            <a href="/HTML/project-detail.html?id=${project.id}" class="project-link">View Project</a>
+                            </div>                            <a href="/HTML/project-detail.html?id=${project.id}" class="project-link">Se Projekt</a>
                         </div>
                     `;
                     
@@ -185,9 +182,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         // Function to fetch projects with filters
-        function fetchAndFilterProjects() {
-            // Show loading state
-            projectsGrid.innerHTML = '<div class="loading-spinner"><i class="fas fa-spinner fa-spin"></i><p>Loading projects...</p></div>';
+        function fetchAndFilterProjects() {            // Show loading state
+            projectsGrid.innerHTML = '<div class="loading-spinner"><i class="fas fa-spinner fa-spin"></i><p>Indlæser projekter...</p></div>';
             
             // Build query parameters for API call
             const queryParams = new URLSearchParams();
@@ -211,11 +207,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
                 .then(projects => {
                     renderProjects(projects);
-                })
-                .catch(error => {
+                })                .catch(error => {
                     console.error('Error fetching projects:', error);
-                    projectsGrid.innerHTML = '<p class="error-message">Error loading projects. Please try again later.</p>';
-                    resultsCount.textContent = 'Error';
+                    projectsGrid.innerHTML = '<p class="error-message">Fejl ved indlæsning af projekter. Prøv venligst igen senere.</p>';
+                    resultsCount.textContent = 'Fejl';
                 });
         }
         

@@ -1,481 +1,449 @@
 // Mock project data extracted from home.js
 const mockProjects = [
-    {
-        id: 1,
-        title: "Sleep Patterns in Depression",
-        description: "This research aims to understand sleep patterns and their impact on cognitive function in individuals with depression.",
-        fullDescription: "Sleep disruption is a common symptom of depression that can significantly impact quality of life and recovery. This research project investigates the relationship between sleep patterns and cognitive performance in adults aged 18-25 with mild to moderate depression. By collecting data on sleep habits, duration, and quality, alongside measures of cognitive function, memory, and attention, we hope to better understand how sleep impacts daily functioning in this population and develop more effective interventions.",
+    {        id: 1,
+        title: "Søvnmønstre ved Depression",
+        description: "Denne forskning sigter mod at forstå søvnmønstre og deres indvirkning på kognitiv funktion hos personer med depression.",
+        fullDescription: "Søvnforstyrrelser er et almindeligt symptom ved depression, der kan påvirke livskvalitet og bedring betydeligt. Dette forskningsprojekt undersøger forholdet mellem søvnmønstre og kognitiv præstation hos voksne i alderen 18-25 år med mild til moderat depression. Ved at indsamle data om søvnvaner, varighed og kvalitet, sammen med målinger af kognitiv funktion, hukommelse og opmærksomhed, håber vi at opnå en bedre forståelse af, hvordan søvn påvirker daglig funktionsevne i denne population og udvikle mere effektive interventioner.",
         type: "observational",
-        location: "Copenhagen",
-        duration: "4 weeks",
+        location: "København",
+        duration: "4 uger",
         startDate: "April 15, 2025",
-        endDate: "May 13, 2025",
-        criteria: ["18-25 years old", "Diagnosed with mild to moderate depression", "Not taking sleep medications", "No shift work"],
+        endDate: "May 13, 2025",        criteria: ["18-25 år gammel", "Diagnosticeret med mild til moderat depression", "Tager ikke sovemedicin", "Ikke skiftearbejde"],
         gender: "all",
         ageRange: "18-25",
-        institution: "Copenhagen University Hospital - Psychiatric Department",
+        institution: "Københavns Universitetshospital - Psykiatrisk Afdeling",
         compensation: "500 DKK",
         researchLead: "Dr. Sofia Jensen",
         contactEmail: "depression.sleep.research@example.com",
         contactPhone: "+45 12 34 56 78",
-        status: "Recruiting",
+        status: "Rekrutterer",
         participantsNeeded: 50,
         participantsEnrolled: 12,
         diagnosis: ["Depression og bipolar lidelse"],
-        center: "Psykiatrisk Center København",
-        timeline: [
+        center: "Psykiatrisk Center København",        timeline: [
             {
-                title: "Initial Screening",
-                date: "Week 1",
-                description: "Completion of depression assessment, sleep quality questionnaires and eligibility screening."
+                title: "Indledende Screening",
+                date: "Uge 1",
+                description: "Udfyldelse af depressionsvurdering, søvnkvalitetsspørgeskemaer og egnethedsvurdering."
             },
             {
-                title: "Sleep Monitoring",
-                date: "Weeks 1-4",
-                description: "Daily sleep tracking using provided wearable device and sleep diary."
+                title: "Søvnovervågning",
+                date: "Uge 1-4",
+                description: "Daglig søvnsporing ved hjælp af udleveret wearable-enhed og søvndagbog."
             },
             {
-                title: "Cognitive Assessment",
-                date: "Weeks 1 and 4",
-                description: "Completion of cognitive tests to assess memory, attention, and processing speed."
+                title: "Kognitiv Vurdering",
+                date: "Uge 1 og 4",
+                description: "Gennemførelse af kognitive tests for at vurdere hukommelse, opmærksomhed og bearbejdningshastighed."
             },
             {
-                title: "Follow-up Interview",
-                date: "Week 4",
-                description: "Final interview and return of monitoring equipment."
+                title: "Opfølgende Interview",
+                date: "Uge 4",
+                description: "Afsluttende interview og returnering af overvågningsudstyr."
             }
-        ],
-        team: [
+        ],        team: [
             {
                 name: "Dr. Sofia Jensen",
-                role: "Principal Investigator",
+                role: "Forskningsleder",
                 photo: "https://randomuser.me/api/portraits/women/45.jpg"
             },
             {
                 name: "Dr. Marcus Nielsen",
-                role: "Psychiatrist",
+                role: "Psykiater",
                 photo: "https://randomuser.me/api/portraits/men/32.jpg"
             },
             {
                 name: "Lena Schmidt",
-                role: "Research Coordinator",
+                role: "Forskningskoordinator",
                 photo: "https://randomuser.me/api/portraits/women/68.jpg"
             }
         ]
     },
-    {
-        id: 2,
-        title: "Mindfulness for Anxiety Disorders",
-        description: "Clinical trial testing a new mindfulness approach for managing anxiety disorders.",
-        fullDescription: "Anxiety disorders are among the most common mental health conditions worldwide. This clinical trial evaluates the effectiveness of a novel mindfulness-based intervention program designed to reduce symptoms of generalized anxiety, social anxiety, and panic disorder. The intervention combines guided meditation, cognitive techniques, and behavioral strategies delivered through both in-person sessions and a mobile application.",
+    {        id: 2,
+        title: "Mindfulness for Angstlidelser",
+        description: "Klinisk forsøg der tester en ny mindfulness-tilgang til håndtering af angstlidelser.",
+        fullDescription: "Angstlidelser hører til blandt de mest almindelige mentale helbredstilstande på verdensplan. Dette kliniske forsøg evaluerer effektiviteten af et nyskabende mindfulness-baseret interventionsprogram designet til at reducere symptomer på generaliseret angst, social angst og panikanfald. Interventionen kombinerer guidet meditation, kognitive teknikker og adfærdsstrategier leveret gennem både personlige sessioner og en mobilapplikation.",
         type: "clinical",
         location: "Aarhus",
-        duration: "6 months",
+        duration: "6 måneder",
         startDate: "May 1, 2025",
-        endDate: "November 1, 2025",
-        criteria: ["Diagnosed with an anxiety disorder", "Not currently in psychotherapy", "No significant comorbid conditions", "Able to attend weekly sessions"],
+        endDate: "November 1, 2025",        criteria: ["Diagnosticeret med en angstlidelse", "Ikke i psykoterapi på nuværende tidspunkt", "Ingen væsentlige komorbide tilstande", "I stand til at deltage i ugentlige sessioner"],
         gender: "all",
         ageRange: "36-45",
-        institution: "Aarhus University Hospital - Psychiatric Research Unit",
+        institution: "Aarhus Universitetshospital - Psykiatrisk Forskningsenhed",
         compensation: "2500 DKK",
         researchLead: "Dr. Lars Petersen",
         contactEmail: "anxiety.mindfulness@example.com",
         contactPhone: "+45 23 45 67 89",
-        status: "Recruiting",
+        status: "Rekrutterer",
         participantsNeeded: 120,
         participantsEnrolled: 43,
         diagnosis: ["Stress og angst"],
-        center: "Psykiatrisk Center Amager",
-        timeline: [
+        center: "Psykiatrisk Center Amager",        timeline: [
             {
-                title: "Screening Visit",
-                date: "Week 1",
-                description: "Medical history review, anxiety assessment, and eligibility evaluation."
+                title: "Screeningsbesøg",
+                date: "Uge 1",
+                description: "Gennemgang af sygehistorie, angstvurdering og egnethedsevaluering."
             },
             {
-                title: "Baseline Assessment",
-                date: "Week 2",
-                description: "Comprehensive psychological evaluation including anxiety measures and quality of life indicators."
+                title: "Baseline Vurdering",
+                date: "Uge 2",
+                description: "Omfattende psykologisk evaluering inklusive angstmålinger og livskvalitetsindikatorer."
             },
             {
-                title: "Intervention Phase",
-                date: "Weeks 2-26",
-                description: "Weekly mindfulness sessions, daily practice, and bi-weekly progress check-ins."
+                title: "Interventionsfase",
+                date: "Uge 2-26",
+                description: "Ugentlige mindfulness-sessioner, daglig praksis og to-ugentlige fremskridtsmøder."
             },
             {
-                title: "Final Assessment",
-                date: "Week 26",
-                description: "Evaluation of mental health outcomes and program effectiveness."
+                title: "Afsluttende Vurdering",
+                date: "Uge 26",
+                description: "Evaluering af mentale sundhedsresultater og programmets effektivitet."
             }
-        ],
-        team: [
+        ],        team: [
             {
                 name: "Dr. Lars Petersen",
-                role: "Principal Investigator",
+                role: "Forskningsleder",
                 photo: "https://randomuser.me/api/portraits/men/22.jpg"
             },
             {
                 name: "Dr. Anna Sørensen",
-                role: "Clinical Psychologist",
+                role: "Klinisk Psykolog",
                 photo: "https://randomuser.me/api/portraits/women/33.jpg"
             },
             {
                 name: "Thomas Berg",
-                role: "Mindfulness Instructor",
+                role: "Mindfulness Instruktør",
                 photo: "https://randomuser.me/api/portraits/men/41.jpg"
             }
         ]
     },
-    {
-        id: 3,
-        title: "Women's Mental Health Survey",
-        description: "A comprehensive survey on women's mental health concerns, access to psychiatric care, and wellness practices.",
-        fullDescription: "This research project aims to collect data on women's mental health experiences, concerns, and healthcare access across different age groups and demographics. The survey covers topics including preventive mental healthcare practices, reproductive mental health, wellbeing, mood disorders, and satisfaction with psychiatric services. The findings will help inform mental healthcare policy and identify areas where women's psychiatric services could be improved.",
+    {        id: 3,
+        title: "Kvinders Mentale Sundhedsundersøgelse",
+        description: "En omfattende undersøgelse om kvinders mentale sundhedsbekymringer, adgang til psykiatrisk behandling og velværepraksis.",
+        fullDescription: "Dette forskningsprojekt sigter mod at indsamle data om kvinders oplevelser med mental sundhed, bekymringer og adgang til sundhedspleje på tværs af forskellige aldersgrupper og demografier. Undersøgelsen dækker emner som forebyggende praksis for mental sundhedspleje, reproduktiv mental sundhed, velvære, stemningslidelser og tilfredshed med psykiatriske tjenester. Resultaterne vil hjælpe med at informere politik for mental sundhedspleje og identificere områder, hvor psykiatriske tjenester for kvinder kan forbedres.",
         type: "survey",
         location: "Online",
-        duration: "1 hour",
+        duration: "1 time",
         startDate: "Immediate",
-        endDate: "Ongoing",
-        criteria: ["Female identifying", "Regular access to mental healthcare", "Able to complete an online survey in English or Danish"],
+        endDate: "Ongoing",        criteria: ["Identificerer sig som kvinde", "Regelmæssig adgang til mental sundhedspleje", "I stand til at gennemføre en online undersøgelse på dansk eller engelsk"],
         gender: "female",
         ageRange: "26-35",
-        institution: "Danish Women's Mental Health Research Institute",
-        compensation: "200 DKK gift card",
+        institution: "Dansk Forskningsinstitut for Kvinders Mentale Sundhed",
+        compensation: "200 DKK gavekort",
         researchLead: "Dr. Emma Larsen",
         contactEmail: "womens.mental.health.survey@example.com",
         contactPhone: "+45 34 56 78 90",
-        status: "Open",
+        status: "Åben",
         participantsNeeded: 2000,
         participantsEnrolled: 543,
         diagnosis: ["Ingen"],
-        center: "Psykiatrisk Center Ballerup",
-        timeline: [
+        center: "Psykiatrisk Center Ballerup",        timeline: [
             {
-                title: "Survey Completion",
-                date: "Single session",
-                description: "Complete the comprehensive online mental health survey (approx. 60 minutes)."
+                title: "Undersøgelse Gennemførelse",
+                date: "Enkelt session",
+                description: "Gennemfør den omfattende online undersøgelse om mental sundhed (ca. 60 minutter)."
             },
             {
-                title: "Optional Follow-up",
-                date: "If selected",
-                description: "Some participants may be invited for a brief follow-up interview."
+                title: "Valgfri Opfølgning",
+                date: "Hvis udvalgt",
+                description: "Nogle deltagere kan blive inviteret til et kort opfølgningsinterview."
             }
-        ],
-        team: [
+        ],        team: [
             {
                 name: "Dr. Emma Larsen",
-                role: "Principal Investigator",
+                role: "Forskningsleder",
                 photo: "https://randomuser.me/api/portraits/women/28.jpg"
             },
             {
                 name: "Dr. Sofia Andersen",
-                role: "Women's Mental Health Specialist",
+                role: "Specialist i Kvinders Mentale Sundhed",
                 photo: "https://randomuser.me/api/portraits/women/53.jpg"
             },
             {
                 name: "Maria Poulsen",
-                role: "Research Analyst",
+                role: "Forskningsanalytiker",
                 photo: "https://randomuser.me/api/portraits/women/79.jpg"
             }
         ]
     },
-    {
-        id: 4,
-        title: "Workplace Stress and Burnout Prevention",
-        description: "Investigating the effectiveness of different stress management techniques in preventing workplace burnout.",
-        fullDescription: "Work-related stress and burnout affect mental health, productivity, and quality of life for many professionals. This study evaluates the impact of three different mental health interventions in office environments: mindfulness meditation, cognitive behavioral techniques, and resilience training. Participants will be randomly assigned to one intervention and will practice the technique for 8 weeks, with regular assessments of stress levels, burnout indicators, and psychological wellbeing.",
+    {        id: 4,
+        title: "Forebyggelse af Arbejdsrelateret Stress og Udbrændthed",
+        description: "Undersøger effektiviteten af forskellige stresshåndteringsteknikker i forebyggelsen af arbejdsrelateret udbrændthed.",
+        fullDescription: "Arbejdsrelateret stress og udbrændthed påvirker mental sundhed, produktivitet og livskvalitet for mange fagfolk. Denne undersøgelse evaluerer effekten af tre forskellige mentale sundhedsinterventioner i kontormiljøer: mindfulness meditation, kognitive adfærdsteknikker og resiliens-træning. Deltagerne vil tilfældigt blive tildelt en intervention og vil praktisere teknikken i 8 uger, med regelmæssige vurderinger af stressniveau, udbrændthedsindikatorer og psykologisk velvære.",
         type: "observational",
         location: "Odense",
-        duration: "8 weeks",
+        duration: "8 uger",
         startDate: "April 20, 2025",
         endDate: "June 15, 2025",
-        criteria: ["Full-time employed in office environment", "Self-reported workplace stress", "No current psychiatric treatment", "Willingness to practice assigned technique"],
+        criteria: ["Fuldtidsansat i kontormiljø", "Selvrapporteret arbejdsrelateret stress", "Ingen nuværende psykiatrisk behandling", "Villighed til at praktisere tildelt teknik"],
         gender: "all",
-        ageRange: "26-35",
-        institution: "University of Southern Denmark - Department of Occupational Psychiatry",
+        ageRange: "26-35",        institution: "Syddansk Universitet - Afdeling for Arbejdsrelateret Psykiatri",
         compensation: "1000 DKK",
         researchLead: "Dr. Mikkel Rasmussen",
         contactEmail: "workplace.burnout@example.com",
         contactPhone: "+45 45 67 89 01",
-        status: "Recruiting",
+        status: "Rekrutterer",
         participantsNeeded: 90,
         participantsEnrolled: 27,
         diagnosis: ["Stress og angst"],
         center: "Psykiatrisk Center Glostrup",
-        timeline: [
-            {
-                title: "Initial Assessment",
-                date: "Week 1",
-                description: "Baseline stress measures, burnout assessment, and mental health screening."
+        timeline: [            {
+                title: "Indledende Vurdering",
+                date: "Uge 1",
+                description: "Baseline stressmålinger, udbrændthedsvurdering og mental sundhedsscreening."
             },
             {
-                title: "Intervention Assignment",
-                date: "Week 1",
-                description: "Random assignment to one of three stress management techniques."
+                title: "Interventionstildeling",
+                date: "Uge 1",
+                description: "Tilfældig tildeling til en af tre stresshåndteringsteknikker."
             },
             {
-                title: "Practice Period",
-                date: "Weeks 1-8",
-                description: "Daily practice of assigned technique with weekly progress tracking."
+                title: "Øvelsesperiode",
+                date: "Uge 1-8",
+                description: "Daglig øvelse af den tildelte teknik med ugentlig fremskridtssporing."
             },
             {
-                title: "Final Assessment",
-                date: "Week 8",
-                description: "Post-intervention stress measures and psychological wellbeing assessment."
+                title: "Afsluttende Vurdering",
+                date: "Uge 8",
+                description: "Stressmålinger efter intervention og vurdering af psykologisk velvære."
             }
         ],
-        team: [
-            {
+        team: [            {
                 name: "Dr. Mikkel Rasmussen",
-                role: "Principal Investigator",
+                role: "Forskningsleder",
                 photo: "https://randomuser.me/api/portraits/men/67.jpg"
             },
             {
                 name: "Dr. Louise Thomsen",
-                role: "Occupational Psychiatrist",
+                role: "Arbejdspsykiater",
                 photo: "https://randomuser.me/api/portraits/women/42.jpg"
             },
             {
                 name: "Jonas Eriksen",
-                role: "Research Assistant",
+                role: "Forskningsassistent",
                 photo: "https://randomuser.me/api/portraits/men/55.jpg"
             }
         ]
     },
-    {
-        id: 5,
-        title: "PTSD Treatment Innovation",
-        description: "Study on novel therapeutic approaches for post-traumatic stress disorder in middle-aged men.",
-        fullDescription: "This research project examines the effectiveness of a new therapeutic approach for treating PTSD in men aged 46 and older. The study will combine traditional cognitive processing therapy with innovative virtual reality exposure techniques, and assess their impact on PTSD symptoms, sleep quality, and overall mental wellbeing. The goal is to identify more effective treatments for this demographic that often faces barriers to seeking and continuing mental health care.",
+    {        id: 5,
+        title: "PTSD Behandlingsinnovation",
+        description: "Undersøgelse af nye terapeutiske tilgange til posttraumatisk stresslidelse hos midaldrende mænd.",
+        fullDescription: "Dette forskningsprojekt undersøger effektiviteten af en ny terapeutisk tilgang til behandling af PTSD hos mænd på 46 år og derover. Undersøgelsen vil kombinere traditionel kognitiv bearbejdningsterapi med innovative virtual reality eksponeringsteknikker og vurdere deres indvirkning på PTSD-symptomer, søvnkvalitet og generelt mentalt velvære. Målet er at identificere mere effektive behandlinger for denne demografiske gruppe, som ofte møder barrierer i forhold til at søge og fortsætte med mental sundhedspleje.",
         type: "clinical",
         location: "Aalborg",
-        duration: "3 months",
-        startDate: "June 1, 2025",
-        endDate: "September 1, 2025",
-        criteria: ["Male", "Age 46 or older", "PTSD diagnosis", "Not currently in trauma-focused therapy", "No active substance use disorder"],
+        duration: "3 måneder",
+        startDate: "1. juni 2025",
+        endDate: "1. september 2025",        criteria: ["Mand", "46 år eller ældre", "PTSD-diagnose", "Ikke aktuelt i traumefokuseret terapi", "Ingen aktiv stofmisbrugslidelse"],
         gender: "male",
         ageRange: "46+",
-        institution: "Aalborg University Hospital - Trauma Research Center",
+        institution: "Aalborg Universitetshospital - Traumeforskningscenter",
         compensation: "1500 DKK",
         researchLead: "Dr. Anders Nielsen",
         contactEmail: "ptsd.treatment@example.com",
         contactPhone: "+45 56 78 90 12",
-        status: "Recruiting",
+        status: "Rekrutterer",
         participantsNeeded: 150,
         participantsEnrolled: 42,
         diagnosis: ["Psykose, skizofreni og skizotypi"],
         center: "Psykiatrisk Center Sct. Hans",
-        timeline: [
-            {
-                title: "Initial Assessment",
-                date: "Week 1",
-                description: "Comprehensive PTSD evaluation and eligibility assessment."
+        timeline: [            {
+                title: "Indledende Vurdering",
+                date: "Uge 1",
+                description: "Omfattende PTSD-evaluering og egnethedsvurdering."
             },
             {
-                title: "Treatment Period",
-                date: "Weeks 1-12",
-                description: "Weekly therapy sessions combining traditional and VR-based approaches."
+                title: "Behandlingsperiode",
+                date: "Uge 1-12",
+                description: "Ugentlige terapisessioner, der kombinerer traditionelle og VR-baserede tilgange."
             },
             {
-                title: "Mid-point Check",
-                date: "Week 6",
-                description: "Brief follow-up assessment and treatment protocol adjustment if needed."
+                title: "Midtvejstjek",
+                date: "Uge 6",
+                description: "Kort opfølgningsvurdering og justering af behandlingsprotokol efter behov."
             },
             {
-                title: "Final Evaluation",
-                date: "Week 12",
-                description: "Comprehensive final assessment and review of symptomatic changes."
+                title: "Afsluttende Evaluering",
+                date: "Uge 12",
+                description: "Omfattende slutvurdering og gennemgang af symptomatiske ændringer."
             }
         ],
-        team: [
-            {
+        team: [            {
                 name: "Dr. Anders Nielsen",
-                role: "Principal Investigator",
+                role: "Forskningsleder",
                 photo: "https://randomuser.me/api/portraits/men/76.jpg"
             },
             {
                 name: "Dr. Henrik Jensen",
-                role: "Trauma Specialist",
+                role: "Traumespecialist",
                 photo: "https://randomuser.me/api/portraits/men/15.jpg"
             },
             {
                 name: "Kristian Møller",
-                role: "VR Therapy Technician",
+                role: "VR-terapitekniker",
                 photo: "https://randomuser.me/api/portraits/men/37.jpg"
             }
         ]
     },
-    {
-        id: 6,
-        title: "Digital Tech and Mental Wellbeing",
-        description: "Survey on digital device usage and its impact on mental health and psychological wellbeing.",
-        fullDescription: "This survey-based study investigates the relationship between digital technology usage patterns and various aspects of mental wellbeing. Participants will complete a comprehensive survey about their device usage habits, social media engagement, online activities, and perceived impacts on their mental health, mood regulation, anxiety levels, and social connections. The research aims to identify both positive and negative correlations between digital behaviors and psychological outcomes.",
+    {        id: 6,
+        title: "Digital Teknologi og Mental Velvære",
+        description: "Undersøgelse om brug af digitale enheder og deres påvirkning på mental sundhed og psykologisk velvære.",
+        fullDescription: "Denne spørgeskemabaserede undersøgelse udforsker forholdet mellem digitale teknologibrugsmønstre og forskellige aspekter af mental velvære. Deltagerne vil udfylde et omfattende spørgeskema om deres enhedsbrugsvaner, engagement på sociale medier, onlineaktiviteter og opfattede påvirkninger på deres mentale sundhed, humørregulering, angstniveauer og sociale forbindelser. Forskningen sigter mod at identificere både positive og negative sammenhænge mellem digital adfærd og psykologiske resultater.",
         type: "survey",
         location: "Online",
-        duration: "30 minutes",
-        startDate: "Immediate",
-        endDate: "Ongoing",
-        criteria: ["Regular smartphone and/or computer user", "Active on at least one social media platform", "Can complete online survey in English or Danish"],
+        duration: "30 minutter",
+        startDate: "Umiddelbart",
+        endDate: "Løbende",        criteria: ["Regelmæssig smartphone- og/eller computerbruger", "Aktiv på mindst én social medieplatform", "Kan udfylde onlineundersøgelse på engelsk eller dansk"],
         gender: "all",
         ageRange: "18-25",
-        institution: "Digital Mental Health Research Center",
-        compensation: "Entry into prize draw (10 x 500 DKK)",
+        institution: "Forskningscenter for Digital Mental Sundhed",
+        compensation: "Deltagelse i lodtrækning (10 x 500 DKK)",
         researchLead: "Dr. Nanna Christensen",
         contactEmail: "digital.mental.health@example.com",
         contactPhone: "+45 67 89 01 23",
-        status: "Open",
+        status: "Åben",
         participantsNeeded: 1000,
         participantsEnrolled: 278,
         diagnosis: ["Ingen"],
         center: "Psykiatrisk Center Stolpegård",
-        timeline: [
-            {
-                title: "Survey Completion",
-                date: "Single session",
-                description: "Complete the comprehensive online survey about digital habits and mental wellbeing (approx. 30 minutes)."
+        timeline: [            {
+                title: "Undersøgelse Gennemførelse",
+                date: "Enkelt session",
+                description: "Udfyld det omfattende onlinespørgeskema om digitale vaner og mental velvære (ca. 30 minutter)."
             },
             {
-                title: "Optional Follow-up",
-                date: "If selected",
-                description: "Some participants may be invited for a follow-up survey in 6 months."
+                title: "Valgfri Opfølgning",
+                date: "Hvis udvalgt",
+                description: "Nogle deltagere kan blive inviteret til en opfølgningsundersøgelse efter 6 måneder."
             }
         ],
-        team: [
-            {
+        team: [            {
                 name: "Dr. Nanna Christensen",
-                role: "Principal Investigator",
+                role: "Forskningsleder",
                 photo: "https://randomuser.me/api/portraits/women/63.jpg"
             },
             {
                 name: "Dr. Simon Hansen",
-                role: "Digital Behavior Specialist",
+                role: "Specialist i Digital Adfærd",
                 photo: "https://randomuser.me/api/portraits/men/24.jpg"
             },
             {
                 name: "Julie Fischer",
-                role: "Research Coordinator",
+                role: "Forskningskoordinator",
                 photo: "https://randomuser.me/api/portraits/women/10.jpg"
             }
         ]
-    },
-    {
+    },    {
         id: 7,
-        title: "Cognitive Behavioral Therapy for OCD",
-        description: "Evaluating a modified CBT protocol specifically designed for adults with treatment-resistant OCD.",
+        title: "Kognitiv Adfærdsterapi for OCD",
+        description: "Evaluering af en modificeret CBT-protokol specielt designet til voksne med behandlingsresistent OCD.",
         type: "clinical",
-        location: "Copenhagen",
-        duration: "12 weeks",
-        startDate: "June 15, 2025",
-        criteria: ["OCD diagnosis", "Previous therapy experience", "Ages 25-55"],
-        gender: "all",
-        ageRange: "26-35",
+        location: "København",
+        duration: "12 uger",
+        startDate: "15. juni 2025",
+        criteria: ["OCD-diagnose", "Tidligere terapierfaring", "Alder 25-55"],
+        gender: "all",        ageRange: "26-35",
         diagnosis: ["AD(H)D, OCD og Tourette"],
         center: "Psykiatrisk Center København",
-        status: "Recruiting",
-        fullDescription: "This study evaluates a modified cognitive behavioral therapy protocol designed specifically for adults with treatment-resistant OCD. The approach combines traditional exposure and response prevention techniques with novel cognitive restructuring methods and digital support tools.",
-        institution: "Copenhagen University Hospital - Mental Health Services",
+        status: "Rekrutterer",
+        fullDescription: "Denne undersøgelse evaluerer en modificeret protokol for kognitiv adfærdsterapi designet specifikt til voksne med behandlingsresistent OCD. Tilgangen kombinerer traditionelle eksponerings- og responshæmningsteknikker med nye kognitive omstruktureringsmetoder og digitale støtteværktøjer.",
+        institution: "Københavns Universitetshospital - Psykiatriske Tjenester",
         compensation: "1200 DKK",
         researchLead: "Dr. Johan Knudsen",
         contactEmail: "ocd.research@example.com",
         contactPhone: "+45 78 90 12 34",
         participantsNeeded: 60,
-        participantsEnrolled: 18,
-        timeline: [
+        participantsEnrolled: 18,        timeline: [
             {
-                title: "Screening Assessment",
-                date: "Week 1",
-                description: "Comprehensive OCD evaluation and eligibility assessment."
+                title: "Screeningsvurdering",
+                date: "Uge 1",
+                description: "Omfattende OCD-evaluering og egnethedsvurdering."
             },
             {
-                title: "Treatment Phase",
-                date: "Weeks 2-11",
-                description: "Weekly CBT sessions with home practice assignments."
+                title: "Behandlingsfase",
+                date: "Uge 2-11",
+                description: "Ugentlige CBT-sessioner med hjemmeøvelser."
             },
             {
-                title: "Final Evaluation",
-                date: "Week 12",
-                description: "Post-treatment assessment and symptom review."
+                title: "Afsluttende Evaluering",
+                date: "Uge 12",
+                description: "Vurdering efter behandling og symptomgennemgang."
             }
-        ],
-        team: [
+        ],        team: [
             {
                 name: "Dr. Johan Knudsen",
-                role: "Principal Investigator",
+                role: "Forskningsleder",
                 photo: "https://randomuser.me/api/portraits/men/42.jpg"
             },
             {
                 name: "Dr. Mette Larsen",
-                role: "CBT Specialist",
+                role: "CBT-specialist",
                 photo: "https://randomuser.me/api/portraits/women/37.jpg"
             }
         ]
-    },
-    {
+    },    {
         id: 8,
-        title: "Technology-Assisted Therapy for Adolescents",
-        description: "Testing a new app-based intervention to supplement traditional therapy for teens with anxiety and depression.",
+        title: "Teknologiunderstøttet Terapi for Unge",
+        description: "Test af en ny app-baseret intervention som supplement til traditionel terapi for unge med angst og depression.",
         type: "clinical",
         location: "Online + Odense",
-        duration: "16 weeks",
-        startDate: "May 10, 2025",
-        criteria: ["Ages 13-18", "Anxiety or depression", "Smartphone access"],
+        duration: "16 uger",
+        startDate: "10. maj 2025",
+        criteria: ["Alder 13-18", "Angst eller depression", "Adgang til smartphone"],
         gender: "all",
         ageRange: "18-25",
         diagnosis: ["Depression og bipolar lidelse", "Stress og angst"],
         center: "Børne- og Ungdomspsykiatrisk Center",
         status: "Recruiting",
         fullDescription: "This clinical trial evaluates the effectiveness of a smartphone application designed to supplement traditional therapy for adolescents with anxiety and depression. The app provides mood tracking, coping skill exercises, and between-session support.",
-        institution: "Odense University Hospital - Child and Adolescent Psychiatry",
-        compensation: "800 DKK + free app access for 1 year post-study",
+        institution: "Odense Universitetshospital - Børne- og Ungdomspsykiatri",
+        compensation: "800 DKK + gratis appadgang i 1 år efter undersøgelsen",
         researchLead: "Dr. Trine Petersen",
         contactEmail: "teen.app.therapy@example.com",
         contactPhone: "+45 89 01 23 45",
         participantsNeeded: 100,
-        participantsEnrolled: 38,
-        timeline: [
+        participantsEnrolled: 38,        timeline: [
             {
-                title: "Initial Assessment",
-                date: "Week 1",
-                description: "Clinical evaluation and app setup assistance."
+                title: "Indledende Vurdering",
+                date: "Uge 1",
+                description: "Klinisk evaluering og hjælp til app-opsætning."
             },
             {
-                title: "App-Assisted Therapy",
-                date: "Weeks 1-16",
-                description: "Biweekly therapy sessions plus daily app use."
+                title: "App-understøttet Terapi",
+                date: "Uge 1-16",
+                description: "To-ugentlige terapisessioner plus daglig brug af app."
             },
             {
-                title: "Final Evaluation",
-                date: "Week 16",
-                description: "Post-intervention assessment."
+                title: "Afsluttende Evaluering",
+                date: "Uge 16",
+                description: "Vurdering efter intervention."
             }
-        ],
-        team: [
+        ],        team: [
             {
                 name: "Dr. Trine Petersen",
-                role: "Principal Investigator",
+                role: "Forskningsleder",
                 photo: "https://randomuser.me/api/portraits/women/26.jpg"
             },
             {
                 name: "Lars Andersen",
-                role: "App Developer",
+                role: "App-udvikler",
                 photo: "https://randomuser.me/api/portraits/men/29.jpg"
             }
         ]
-    },
-    {
+    },    {
         id: 9,
-        title: "Neurofeedback Training for ADHD",
-        description: "Examining the efficacy of neurofeedback training in adults with ADHD who prefer non-medication approaches.",
+        title: "Neurofeedback Træning for ADHD",
+        description: "Undersøger effektiviteten af neurofeedback-træning hos voksne med ADHD, som foretrækker ikke-medicinbaserede tilgange.",
         type: "clinical",
         location: "Aalborg",
-        duration: "10 weeks",
-        startDate: "July 5, 2025",
-        criteria: ["ADHD diagnosis", "Age 21-40", "No stimulant medications"],
+        duration: "10 uger",
+        startDate: "5. juli 2025",
+        criteria: ["ADHD-diagnose", "Alder 21-40", "Ingen stimulansmedicin"],
         gender: "all",
         ageRange: "26-35",
         diagnosis: ["AD(H)D, OCD og Tourette"],
         center: "Psykiatrisk Center Nordsjælland",
-        status: "Recruiting",
+        status: "Rekrutterer",
         fullDescription: "This study investigates whether a 10-week neurofeedback training program can improve attention, impulse control, and executive functioning in adults with ADHD who prefer non-medication approaches to treatment.",
         institution: "Aalborg University - Department of Psychology",
         compensation: "1800 DKK",
@@ -483,278 +451,261 @@ const mockProjects = [
         contactEmail: "adhd.neurofeedback@example.com",
         contactPhone: "+45 90 12 34 56",
         participantsNeeded: 40,
-        participantsEnrolled: 12,
-        timeline: [
+        participantsEnrolled: 12,        timeline: [
             {
-                title: "Baseline Assessment",
-                date: "Week 1",
-                description: "ADHD symptom evaluation and cognitive testing."
+                title: "Baseline Vurdering",
+                date: "Uge 1",
+                description: "ADHD-symptomevaluering og kognitiv testning."
             },
             {
-                title: "Neurofeedback Sessions",
-                date: "Weeks 2-9",
-                description: "Twice-weekly neurofeedback training sessions."
+                title: "Neurofeedback-sessioner",
+                date: "Uge 2-9",
+                description: "To ugentlige neurofeedback-træningssessioner."
             },
             {
-                title: "Post-Assessment",
-                date: "Week 10",
-                description: "Final symptom and cognitive evaluation."
+                title: "Eftervurdering",
+                date: "Uge 10",
+                description: "Endelig symptom- og kognitiv evaluering."
             }
-        ],
-        team: [
+        ],        team: [
             {
                 name: "Dr. Anders Mortensen",
-                role: "Principal Investigator",
+                role: "Forskningsleder",
                 photo: "https://randomuser.me/api/portraits/men/43.jpg"
             },
             {
                 name: "Dr. Sofie Nielsen",
-                role: "Neurofeedback Specialist",
+                role: "Neurofeedback-specialist",
                 photo: "https://randomuser.me/api/portraits/women/39.jpg"
             }
         ]
-    },
-    {
+    },    {
         id: 10,
-        title: "Autistic Adults Social Skills Groups",
-        description: "Research on the effectiveness of peer-led social skills groups for autistic adults.",
+        title: "Sociale Færdighedsgrupper for Autistiske Voksne",
+        description: "Forskning om effektiviteten af peer-ledede sociale færdighedsgrupper for autistiske voksne.",
         type: "observational",
-        location: "Copenhagen",
-        duration: "6 months",
-        startDate: "June 1, 2025",
-        criteria: ["Autism diagnosis", "Age 18+", "Interest in social skills development"],
+        location: "København",
+        duration: "6 måneder",
+        startDate: "1. juni 2025",
+        criteria: ["Autismediagnose", "Alder 18+", "Interesse for udvikling af sociale færdigheder"],
         gender: "all",
         ageRange: "18-25",
         diagnosis: ["Autisme"],
         center: "Psykiatrisk Center Ballerup",
-        status: "Recruiting",
-        fullDescription: "This study evaluates the effectiveness of peer-led social skills groups for autistic adults. Groups will meet weekly to practice social interaction strategies and build community connections.",
+        status: "Rekrutterer",
+        fullDescription: "Denne undersøgelse evaluerer effektiviteten af peer-ledede sociale færdighedsgrupper for autistiske voksne. Grupperne vil mødes ugentligt for at øve strategier for social interaktion og opbygge fællesskabsforbindelser.",
         institution: "Center for Autism Research - Copenhagen",
         compensation: "1000 DKK",
         researchLead: "Dr. Karen Jensen",
         contactEmail: "autism.socialskills@example.com",
         contactPhone: "+45 01 23 45 67",
         participantsNeeded: 30,
-        participantsEnrolled: 8,
-        timeline: [
+        participantsEnrolled: 8,        timeline: [
             {
-                title: "Initial Interview",
-                date: "Week 1",
-                description: "Baseline social functioning assessment and group assignment."
+                title: "Indledende Interview",
+                date: "Uge 1",
+                description: "Baseline vurdering af social funktionsevne og gruppetildeling."
             },
             {
-                title: "Group Sessions",
-                date: "Weeks 2-23",
-                description: "Weekly 2-hour social skills group meetings."
+                title: "Gruppesessioner",
+                date: "Uge 2-23",
+                description: "Ugentlige 2-timers gruppemøder om sociale færdigheder."
             },
             {
-                title: "Final Assessment",
-                date: "Week 24",
-                description: "Post-group evaluation and feedback."
+                title: "Afsluttende Vurdering",
+                date: "Uge 24",
+                description: "Evaluering og feedback efter gruppeforløb."
             }
-        ],
-        team: [
+        ],team: [
             {
                 name: "Dr. Karen Jensen",
-                role: "Principal Investigator",
+                role: "Forskningsleder",
                 photo: "https://randomuser.me/api/portraits/women/48.jpg"
             },
             {
                 name: "Mads Pedersen",
-                role: "Peer Group Facilitator",
+                role: "Peer-gruppefacilitator",
                 photo: "https://randomuser.me/api/portraits/men/35.jpg"
             }
         ]
-    },
-    {
+    },    {
         id: 11,
-        title: "Bipolar Disorder Sleep Patterns",
-        description: "Investigating the relationship between sleep patterns and mood stability in people with bipolar disorder.",
+        title: "Søvnmønstre ved Bipolar Lidelse",
+        description: "Undersøger forholdet mellem søvnmønstre og humørstabilitet hos personer med bipolar lidelse.",
         type: "observational",
         location: "Aarhus",
-        duration: "3 months",
-        startDate: "May 15, 2025",
-        criteria: ["Bipolar I or II diagnosis", "Not in acute episode", "No sleep disorders"],
+        duration: "3 måneder",
+        startDate: "15. maj 2025",
+        criteria: ["Bipolar I eller II diagnose", "Ikke i akut episode", "Ingen søvnforstyrrelser"],
         gender: "all",
         ageRange: "26-35",
         diagnosis: ["Depression og bipolar lidelse"],
         center: "Psykiatrisk Center Amager",
-        status: "Recruiting",
-        fullDescription: "This study examines how sleep patterns and circadian rhythms impact mood stability in individuals with bipolar disorder. Participants will use sleep tracking technology and mood monitoring to identify patterns and potential early warning signs of mood episodes.",
-        institution: "Aarhus University Hospital - Mood Disorders Clinic",
+        status: "Rekrutterer",
+        fullDescription: "Denne undersøgelse undersøger, hvordan søvnmønstre og døgnrytmer påvirker humørstabilitet hos personer med bipolar lidelse. Deltagerne vil bruge søvnsporende teknologi og humørovervågning til at identificere mønstre og potentielle tidlige advarselstegn på humørepisoder.",
+        institution: "Aarhus Universitetshospital - Klinik for Humørlidelser",
         compensation: "1200 DKK + sleep tracker to keep",
         researchLead: "Dr. Thomas Møller",
         contactEmail: "bipolar.sleep@example.com",
         contactPhone: "+45 12 34 56 78",
         participantsNeeded: 50,
-        participantsEnrolled: 22,
-        timeline: [
+        participantsEnrolled: 22,        timeline: [
             {
-                title: "Baseline Assessment",
-                date: "Week 1",
-                description: "Clinical evaluation and sleep monitoring setup."
+                title: "Baseline Vurdering",
+                date: "Uge 1",
+                description: "Klinisk evaluering og opsætning af søvnovervågning."
             },
             {
-                title: "Monitoring Period",
-                date: "Weeks 1-12",
-                description: "Daily sleep and mood tracking with monthly check-ins."
+                title: "Overvågningsperiode",
+                date: "Uge 1-12",
+                description: "Daglig søvn- og humørsporing med månedlige opfølgninger."
             },
             {
-                title: "Final Assessment",
-                date: "Week 12",
-                description: "Data review and personalized feedback."
+                title: "Afsluttende Vurdering",
+                date: "Uge 12",
+                description: "Datagennemgang og personlig feedback."
             }
-        ],
-        team: [
+        ],        team: [
             {
                 name: "Dr. Thomas Møller",
-                role: "Principal Investigator",
+                role: "Forskningsleder",
                 photo: "https://randomuser.me/api/portraits/men/51.jpg"
             },
             {
                 name: "Dr. Line Hansen",
-                role: "Sleep Specialist",
+                role: "Søvnspecialist",
                 photo: "https://randomuser.me/api/portraits/women/44.jpg"
             }
         ]
-    },
-    {
+    },    {
         id: 12,
-        title: "Trauma-Focused Yoga for PTSD",
-        description: "Examining the benefits of trauma-sensitive yoga practices for women with PTSD from domestic violence.",
+        title: "Traumefokuseret Yoga for PTSD",
+        description: "Undersøger fordelene ved traumesensitive yogapraksisser for kvinder med PTSD fra vold i hjemmet.",
         type: "clinical",
         location: "Odense",
-        duration: "8 weeks",
-        startDate: "July 10, 2025",
-        criteria: ["Female", "PTSD diagnosis", "History of domestic violence", "No active substance use"],
+        duration: "8 uger",
+        startDate: "10. juli 2025",
+        criteria: ["Kvinde", "PTSD-diagnose", "Historik med vold i hjemmet", "Intet aktivt stofmisbrug"],
         gender: "female",
         ageRange: "26-35",
         diagnosis: ["Psykose, skizofreni og skizotypi", "Stress og angst"],
         center: "Psykiatrisk Center Glostrup",
-        status: "Recruiting",
-        fullDescription: "This study evaluates the effectiveness of a trauma-sensitive yoga program designed specifically for women with PTSD resulting from domestic violence. The program focuses on bodily awareness, safety, and choice-making.",
-        institution: "Odense Women's Crisis Center - Research Division",
+        status: "Rekrutterer",
+        fullDescription: "Denne undersøgelse evaluerer effektiviteten af et traumesensitivt yogaprogram designet specifikt til kvinder med PTSD som følge af vold i hjemmet. Programmet fokuserer på kropsbevidsthed, sikkerhed og evnen til at træffe valg.",
+        institution: "Odense Kvindekrisecenter - Forskningsafdeling",
         compensation: "1000 DKK",
         researchLead: "Dr. Maria Andersen",
         contactEmail: "trauma.yoga@example.com",
         contactPhone: "+45 23 45 67 89",
         participantsNeeded: 40,
-        participantsEnrolled: 15,
-        timeline: [
+        participantsEnrolled: 15,        timeline: [
             {
-                title: "Initial Assessment",
-                date: "Week 1",
-                description: "PTSD symptom evaluation and program introduction."
+                title: "Indledende Vurdering",
+                date: "Uge 1",
+                description: "PTSD-symptomevaluering og programintroduktion."
             },
             {
-                title: "Yoga Program",
-                date: "Weeks 1-8",
-                description: "Twice-weekly trauma-sensitive yoga sessions."
+                title: "Yogaprogram",
+                date: "Uge 1-8",
+                description: "To ugentlige traumesensitive yogasessioner."
             },
             {
-                title: "Follow-up",
-                date: "Week 8",
-                description: "Post-program symptom assessment."
+                title: "Opfølgning",
+                date: "Uge 8",
+                description: "Symtomvurdering efter programmet."
             }
-        ],
-        team: [
+        ],        team: [
             {
                 name: "Dr. Maria Andersen",
-                role: "Principal Investigator",
+                role: "Forskningsleder",
                 photo: "https://randomuser.me/api/portraits/women/56.jpg"
             },
             {
                 name: "Sara Jensen",
-                role: "Trauma-Informed Yoga Instructor",
+                role: "Traumeinformeret Yogainstruktør",
                 photo: "https://randomuser.me/api/portraits/women/62.jpg"
             }
         ]
-    },
-    {
+    },    {
         id: 13,
-        title: "Men's Mental Health Attitudes",
-        description: "Survey exploring attitudes toward mental health services among men of different age groups and backgrounds.",
+        title: "Mænds Holdninger til Mental Sundhed",
+        description: "Undersøgelse af holdninger til psykiske sundhedstjenester blandt mænd i forskellige aldersgrupper og baggrunde.",
         type: "survey",
         location: "Online",
-        duration: "20 minutes",
-        startDate: "Immediate",
-        criteria: ["Male", "Age 18+", "Danish resident"],
+        duration: "20 minutter",
+        startDate: "Umiddelbart",
+        criteria: ["Mand", "Alder 18+", "Dansk bosiddende"],
         gender: "male",
         ageRange: "all",
         diagnosis: ["Ingen"],
         center: "Psykiatrisk Center Sct. Hans",
-        status: "Open",
-        fullDescription: "This survey study explores attitudes, beliefs, and barriers related to mental health services among Danish men. The research aims to identify factors that influence help-seeking behaviors and inform better service approaches for this population.",
-        institution: "Danish Men's Health Research Consortium",
-        compensation: "Entry into prize draw (5 x 1000 DKK)",
+        status: "Åben",
+        fullDescription: "Denne spørgeskemaundersøgelse udforsker holdninger, overbevisninger og barrierer relateret til psykiske sundhedstjenester blandt danske mænd. Forskningen sigter mod at identificere faktorer, der påvirker hjælpsøgende adfærd og informere om bedre servicetilgange for denne befolkningsgruppe.",
+        institution: "Dansk Forskningskonsortium for Mænds Sundhed",
+        compensation: "Deltagelse i lodtrækning (5 x 1000 DKK)",
         researchLead: "Dr. Jesper Nielsen",
         contactEmail: "mens.mental.health@example.com",
         contactPhone: "+45 34 56 78 90",
         participantsNeeded: 500,
-        participantsEnrolled: 178,
-        timeline: [
+        participantsEnrolled: 178,        timeline: [
             {
-                title: "Survey Completion",
-                date: "Single session",
-                description: "Complete online survey about mental health attitudes (20 minutes)."
+                title: "Undersøgelse Gennemførelse",
+                date: "Enkelt session",
+                description: "Gennemfør online spørgeskema om holdninger til mental sundhed (20 minutter)."
             }
-        ],
-        team: [
+        ],        team: [
             {
                 name: "Dr. Jesper Nielsen",
-                role: "Principal Investigator",
+                role: "Forskningsleder",
                 photo: "https://randomuser.me/api/portraits/men/63.jpg"
             },
             {
                 name: "Dr. Mikkel Larsen",
-                role: "Research Psychologist",
+                role: "Forskningspsykolog",
                 photo: "https://randomuser.me/api/portraits/men/27.jpg"
             }
         ]
-    },
-    {
+    },    {
         id: 14,
-        title: "Recovery Narratives in Schizophrenia",
-        description: "Qualitative study examining personal narratives of recovery in people with schizophrenia spectrum disorders.",
+        title: "Recoveryfortællinger ved Skizofreni",
+        description: "Kvalitativ undersøgelse af personlige fortællinger om bedring hos personer med skizofreni-spektrumforstyrrelser.",
         type: "observational",
-        location: "Copenhagen",
-        duration: "2 interviews (2 hours each)",
-        startDate: "June 20, 2025",
-        criteria: ["Schizophrenia spectrum diagnosis", "In stable recovery for 1+ years"],
+        location: "København",
+        duration: "2 interviews (2 timer hver)",
+        startDate: "20. juni 2025",
+        criteria: ["Skizofreni-spektrumdiagnose", "I stabil bedring i 1+ år"],
         gender: "all",
         ageRange: "36-45",
         diagnosis: ["Psykose, skizofreni og skizotypi"],
         center: "Psykiatrisk Center København",
-        status: "Recruiting",
-        fullDescription: "This qualitative research focuses on the personal recovery narratives of individuals with schizophrenia spectrum disorders who have achieved meaningful stability in their lives. Through in-depth interviews, the study aims to identify common themes in recovery journeys.",
-        institution: "Copenhagen University - Department of Psychology",
+        status: "Rekrutterer",
+        fullDescription: "Denne kvalitative forskning fokuserer på personlige recoveryfortællinger fra personer med skizofreni-spektrumforstyrrelser, som har opnået meningsfuld stabilitet i deres liv. Gennem dybdegående interviews sigter undersøgelsen mod at identificere fælles temaer i bedringsrejser.",
+        institution: "Københavns Universitet - Institut for Psykologi",
         compensation: "700 DKK",
         researchLead: "Dr. Christina Mortensen",
         contactEmail: "schizophrenia.recovery@example.com",
         contactPhone: "+45 45 67 89 01",
         participantsNeeded: 20,
         participantsEnrolled: 8,
-        timeline: [
-            {
-                title: "First Interview",
-                date: "Scheduled individually",
-                description: "Life history and mental health journey interview (2 hours)."
+        timeline: [            {
+                title: "Første Interview",
+                date: "Planlagt individuelt",
+                description: "Interview om livshistorie og psykisk sundhedsrejse (2 timer)."
             },
             {
-                title: "Second Interview",
-                date: "2 weeks after first",
-                description: "Recovery-focused follow-up interview (2 hours)."
+                title: "Andet Interview",
+                date: "2 uger efter første",
+                description: "Recovery-fokuseret opfølgningsinterview (2 timer)."
             }
-        ],
-        team: [
+        ],        team: [
             {
                 name: "Dr. Christina Mortensen",
-                role: "Principal Investigator",
+                role: "Forskningsleder",
                 photo: "https://randomuser.me/api/portraits/women/72.jpg"
             },
             {
                 name: "Dr. Frederik Hansen",
-                role: "Qualitative Researcher",
+                role: "Kvalitativ Forsker",
                 photo: "https://randomuser.me/api/portraits/men/68.jpg"
             }
         ]

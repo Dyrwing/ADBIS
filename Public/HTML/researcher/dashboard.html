@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Researcher Dashboard - Region H Psykiatri</title>
+    <title>Forsker Dashboard - Region H Psykiatri</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/CSS/home.css">
@@ -20,27 +20,25 @@
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
-            <nav class="nav-menu">
-                <a href="/HTML/home.html" class="nav-item">Home</a>
-                <a href="/HTML/home.html#projects" class="nav-item">Projects</a>
-                <a href="#" class="nav-item">Testimonials</a>
+            <nav class="nav-menu">                <a href="/HTML/home.html" class="nav-item">Forside</a>
+                <a href="/HTML/home.html#projects" class="nav-item">Projekter</a>
+                <a href="#" class="nav-item">Anmeldelser</a>
                 <a href="/HTML/faq.html" class="nav-item">FAQ</a>
-                <a href="/HTML/about.html" class="nav-item">About Us</a>
-                <a href="/HTML/contact.html" class="nav-item">Contact</a>
-                <a href="/HTML/researcher/dashboard.html" class="nav-item researcher-link active">Researcher Portal</a>
+                <a href="/HTML/about.html" class="nav-item">Om Os</a>
+                <a href="/HTML/contact.html" class="nav-item">Kontakt</a>
+                <a href="/HTML/researcher/dashboard.html" class="nav-item researcher-link active">Forskerportal</a>
             </nav>
-            <div class="user-menu" id="userMenu">
-                <button class="user-menu-button" id="userMenuButton">
+            <div class="user-menu" id="userMenu">                <button class="user-menu-button" id="userMenuButton">
                     <i class="fas fa-user-circle"></i>
-                    <span class="username" id="usernameDisplay">Researcher</span>
+                    <span class="username" id="usernameDisplay">Forsker</span>
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="user-dropdown" id="userDropdown">
                     <a href="/HTML/researcher/profile.html" class="dropdown-item">
-                        <i class="fas fa-id-card"></i> Profile
+                        <i class="fas fa-id-card"></i> Profil
                     </a>
                     <a href="#" class="dropdown-item" id="logoutButton">
-                        <i class="fas fa-sign-out-alt"></i> Logout
+                        <i class="fas fa-sign-out-alt"></i> Log ud
                     </a>
                 </div>
             </div>
@@ -49,12 +47,11 @@
 
     <!-- Dashboard Section -->
     <section class="dashboard-section">
-        <div class="container">
-            <div class="dashboard-header">
-                <h1 class="dashboard-title">Researcher Dashboard</h1>
+        <div class="container">            <div class="dashboard-header">
+                <h1 class="dashboard-title">Forsker Dashboard</h1>
                 <div class="dashboard-actions">
                     <button id="newProjectBtn" class="action-button primary-action">
-                        <i class="fas fa-plus"></i> New Project Request
+                        <i class="fas fa-plus"></i> Nyt Projektforslag
                     </button>
                 </div>
             </div>
@@ -63,15 +60,14 @@
             <div class="dashboard-content">
                 <!-- Sidebar Navigation -->
                 <aside class="dashboard-sidebar">
-                    <nav class="sidebar-nav">
-                        <a href="#projects" class="nav-item active">
-                            <i class="fas fa-flask"></i> My Projects
+                    <nav class="sidebar-nav">                        <a href="#projects" class="nav-item active">
+                            <i class="fas fa-flask"></i> Mine Projekter
                         </a>
                         <a href="#requests" class="nav-item">
-                            <i class="fas fa-tasks"></i> Pending Requests
+                            <i class="fas fa-tasks"></i> Afventende Anmodninger
                         </a>
                         <a href="#notifications" class="nav-item">
-                            <i class="fas fa-bell"></i> Notifications
+                            <i class="fas fa-bell"></i> Notifikationer
                             <span class="badge">3</span>
                         </a>
                     </nav>
@@ -80,36 +76,34 @@
                 <!-- Main Content Area -->
                 <main class="dashboard-main">
                     <!-- Projects Section -->
-                    <section id="projects" class="dashboard-section-content active">
-                        <div class="section-header">
-                            <h2 class="section-title">My Projects</h2>
+                    <section id="projects" class="dashboard-section-content active">                        <div class="section-header">
+                            <h2 class="section-title">Mine Projekter</h2>
                             <div class="section-filters">
                                 <select class="filter-select" id="projectStatusFilter">
-                                    <option value="all">All Statuses</option>
-                                    <option value="Recruiting">Recruiting</option>
-                                    <option value="Active">Active</option>
-                                    <option value="Completed">Completed</option>
-                                    <option value="On Hold">On Hold</option>
+                                    <option value="all">Alle Statusser</option>
+                                    <option value="Recruiting">Rekrutterer</option>
+                                    <option value="Active">Aktive</option>
+                                    <option value="Completed">Afsluttede</option>
+                                    <option value="On Hold">På Pause</option>
                                 </select>
                             </div>
                         </div>
                         
                         <div class="loading-spinner" id="projectsLoading">
                             <i class="fas fa-spinner fa-spin"></i>
-                            <p>Loading projects...</p>
+                            <p>Indlæser projekter...</p>
                         </div>
-                        
-                        <div class="error-message" id="projectsError" style="display: none;">
+                          <div class="error-message" id="projectsError" style="display: none;">
                             <i class="fas fa-exclamation-triangle"></i>
-                            <p>Error loading projects. Please try again.</p>
-                            <button class="retry-button" id="retryProjectsBtn">Retry</button>
+                            <p>Fejl ved indlæsning af projekter. Prøv venligst igen.</p>
+                            <button class="retry-button" id="retryProjectsBtn">Prøv igen</button>
                         </div>
                         
                         <div class="empty-state" id="noProjectsMessage" style="display: none;">
                             <i class="fas fa-folder-open"></i>
-                            <h3>No Projects Found</h3>
-                            <p>You don't have any active research projects yet.</p>
-                            <button class="primary-action" id="emptyStateNewProjectBtn">Create Your First Project Request</button>
+                            <h3>Ingen Projekter Fundet</h3>
+                            <p>Du har endnu ikke nogen aktive forskningsprojekter.</p>
+                            <button class="primary-action" id="emptyStateNewProjectBtn">Opret Dit Første Projektforslag</button>
                         </div>
                         
                         <div class="projects-list" id="projectsList" style="display: none;">
@@ -118,34 +112,32 @@
                     </section>
                     
                     <!-- Requests Section -->
-                    <section id="requests" class="dashboard-section-content">
-                        <div class="section-header">
-                            <h2 class="section-title">Pending Requests</h2>
+                    <section id="requests" class="dashboard-section-content">                        <div class="section-header">
+                            <h2 class="section-title">Afventende Anmodninger</h2>
                             <div class="section-filters">
                                 <select class="filter-select" id="requestTypeFilter">
-                                    <option value="all">All Types</option>
-                                    <option value="create">New Projects</option>
-                                    <option value="edit">Edit Requests</option>
-                                    <option value="delete">Delete Requests</option>
+                                    <option value="all">Alle Typer</option>
+                                    <option value="create">Nye Projekter</option>
+                                    <option value="edit">Redigeringsanmodninger</option>
+                                    <option value="delete">Sletningsanmodninger</option>
                                 </select>
                             </div>
                         </div>
                         
                         <div class="loading-spinner" id="requestsLoading">
                             <i class="fas fa-spinner fa-spin"></i>
-                            <p>Loading requests...</p>
+                            <p>Indlæser anmodninger...</p>
                         </div>
-                        
-                        <div class="error-message" id="requestsError" style="display: none;">
+                          <div class="error-message" id="requestsError" style="display: none;">
                             <i class="fas fa-exclamation-triangle"></i>
-                            <p>Error loading requests. Please try again.</p>
-                            <button class="retry-button" id="retryRequestsBtn">Retry</button>
+                            <p>Fejl ved indlæsning af anmodninger. Prøv venligst igen.</p>
+                            <button class="retry-button" id="retryRequestsBtn">Prøv igen</button>
                         </div>
                         
                         <div class="empty-state" id="noRequestsMessage" style="display: none;">
                             <i class="fas fa-clipboard-list"></i>
-                            <h3>No Pending Requests</h3>
-                            <p>You don't have any pending project requests.</p>
+                            <h3>Ingen Afventende Anmodninger</h3>
+                            <p>Du har ingen afventende projektanmodninger.</p>
                         </div>
                         
                         <div class="requests-list" id="requestsList" style="display: none;">
@@ -154,23 +146,21 @@
                     </section>
                     
                     <!-- Notifications Section -->
-                    <section id="notifications" class="dashboard-section-content">
-                        <div class="section-header">
-                            <h2 class="section-title">Notifications</h2>
+                    <section id="notifications" class="dashboard-section-content">                        <div class="section-header">
+                            <h2 class="section-title">Notifikationer</h2>
                             <button class="mark-all-read-button" id="markAllReadBtn">
-                                <i class="fas fa-check-double"></i> Mark all as read
+                                <i class="fas fa-check-double"></i> Markér alle som læst
                             </button>
                         </div>
                         
-                        <div class="notifications-list">
-                            <div class="notification-item unread">
+                        <div class="notifications-list">                            <div class="notification-item unread">
                                 <div class="notification-icon approved">
                                     <i class="fas fa-check-circle"></i>
                                 </div>
                                 <div class="notification-content">
-                                    <h4 class="notification-title">Project Approved</h4>
-                                    <p class="notification-message">Your project "Cognitive Behavioral Therapy for OCD" has been approved and is now live.</p>
-                                    <span class="notification-time">2 hours ago</span>
+                                    <h4 class="notification-title">Projekt Godkendt</h4>
+                                    <p class="notification-message">Dit projekt "Kognitiv Adfærdsterapi for OCD" er blevet godkendt og er nu live.</p>
+                                    <span class="notification-time">2 timer siden</span>
                                 </div>
                             </div>
                             
@@ -179,9 +169,9 @@
                                     <i class="fas fa-times-circle"></i>
                                 </div>
                                 <div class="notification-content">
-                                    <h4 class="notification-title">Edit Request Needs Revision</h4>
-                                    <p class="notification-message">Your request to edit "Digital Tech and Mental Wellbeing" requires additional information.</p>
-                                    <span class="notification-time">Yesterday</span>
+                                    <h4 class="notification-title">Redigeringsanmodning Kræver Revision</h4>
+                                    <p class="notification-message">Din anmodning om at redigere "Digital Teknologi og Mental Trivsel" kræver yderligere information.</p>
+                                    <span class="notification-time">I går</span>
                                 </div>
                             </div>
                             
@@ -190,9 +180,9 @@
                                     <i class="fas fa-info-circle"></i>
                                 </div>
                                 <div class="notification-content">
-                                    <h4 class="notification-title">New Participant Interest</h4>
-                                    <p class="notification-message">3 new participants have expressed interest in your "Music Therapy for Adult ADHD" study.</p>
-                                    <span class="notification-time">2 days ago</span>
+                                    <h4 class="notification-title">Ny Deltagerinteresse</h4>
+                                    <p class="notification-message">3 nye deltagere har udtrykt interesse for dit studie "Musikterapi for voksne med ADHD".</p>
+                                    <span class="notification-time">2 dage siden</span>
                                 </div>
                             </div>
                             
@@ -200,10 +190,9 @@
                                 <div class="notification-icon approved">
                                     <i class="fas fa-check-circle"></i>
                                 </div>
-                                <div class="notification-content">
-                                    <h4 class="notification-title">Account Approved</h4>
-                                    <p class="notification-message">Your researcher account has been approved. You can now submit project proposals.</p>
-                                    <span class="notification-time">1 week ago</span>
+                                <div class="notification-content">                                    <h4 class="notification-title">Konto Godkendt</h4>
+                                    <p class="notification-message">Din forskerkonto er blevet godkendt. Du kan nu indsende projektforslag.</p>
+                                    <span class="notification-time">1 uge siden</span>
                                 </div>
                             </div>
                         </div>
@@ -216,77 +205,72 @@
     <!-- New Project Request Modal -->
     <div class="modal" id="newProjectModal">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title">New Project Request</h3>
+            <div class="modal-content">                <div class="modal-header">
+                    <h3 class="modal-title">Nyt Projektforslag</h3>
                     <button class="close-button" id="closeNewProjectModal">
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="newProjectForm">
-                        <div class="form-group">
-                            <label for="projectTitle">Project Title</label>
+                    <form id="newProjectForm">                        <div class="form-group">
+                            <label for="projectTitle">Projekttitel</label>
                             <input type="text" id="projectTitle" name="title" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="projectDescription">Short Description</label>
+                            <label for="projectDescription">Kort Beskrivelse</label>
                             <textarea id="projectDescription" name="description" class="form-control" rows="3" required></textarea>
-                            <small class="form-text">Brief summary of your project (max 200 characters)</small>
+                            <small class="form-text">Kort sammenfatning af dit projekt (maks 200 tegn)</small>
                         </div>
                         
                         <div class="form-group">
-                            <label for="projectFullDescription">Full Description</label>
+                            <label for="projectFullDescription">Fuld Beskrivelse</label>
                             <textarea id="projectFullDescription" name="fullDescription" class="form-control" rows="5" required></textarea>
-                            <small class="form-text">Detailed description of your research project</small>
+                            <small class="form-text">Detaljeret beskrivelse af dit forskningsprojekt</small>
                         </div>
-                        
-                        <div class="form-row">
+                          <div class="form-row">
                             <div class="form-group">
                                 <label for="projectType">Type</label>
                                 <select id="projectType" name="type" class="form-control" required>
-                                    <option value="" disabled selected>Select type</option>
-                                    <option value="clinical">Clinical</option>
-                                    <option value="observational">Observational</option>
-                                    <option value="survey">Survey</option>
+                                    <option value="" disabled selected>Vælg type</option>
+                                    <option value="clinical">Klinisk</option>
+                                    <option value="observational">Observationel</option>
+                                    <option value="survey">Spørgeskema</option>
                                 </select>
                             </div>
                             
                             <div class="form-group">
-                                <label for="projectLocation">Location</label>
+                                <label for="projectLocation">Lokation</label>
                                 <input type="text" id="projectLocation" name="location" class="form-control" required>
                             </div>
                         </div>
-                        
-                        <div class="form-row">
+                          <div class="form-row">
                             <div class="form-group">
-                                <label for="projectDuration">Duration</label>
+                                <label for="projectDuration">Varighed</label>
                                 <input type="text" id="projectDuration" name="duration" class="form-control" required>
-                                <small class="form-text">e.g., "8 weeks", "6 months"</small>
+                                <small class="form-text">f.eks. "8 uger", "6 måneder"</small>
                             </div>
                             
                             <div class="form-group">
-                                <label for="projectStartDate">Start Date</label>
+                                <label for="projectStartDate">Startdato</label>
                                 <input type="text" id="projectStartDate" name="startDate" class="form-control" required>
-                                <small class="form-text">e.g., "June 15, 2025" or "Immediate"</small>
+                                <small class="form-text">f.eks. "15. juni 2025" eller "Straks"</small>
                             </div>
                         </div>
-                        
-                        <div class="form-row">
+                          <div class="form-row">
                             <div class="form-group">
-                                <label for="projectGender">Target Gender</label>
+                                <label for="projectGender">Målgruppe Køn</label>
                                 <select id="projectGender" name="gender" class="form-control" required>
-                                    <option value="all">All genders</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
+                                    <option value="all">Alle køn</option>
+                                    <option value="male">Mand</option>
+                                    <option value="female">Kvinde</option>
                                 </select>
                             </div>
                             
                             <div class="form-group">
-                                <label for="projectAgeRange">Age Range</label>
+                                <label for="projectAgeRange">Aldersgruppe</label>
                                 <select id="projectAgeRange" name="ageRange" class="form-control" required>
-                                    <option value="all">All ages</option>
+                                    <option value="all">Alle aldre</option>
                                     <option value="18-25">18-25</option>
                                     <option value="26-35">26-35</option>
                                     <option value="36-45">36-45</option>
@@ -294,11 +278,10 @@
                                 </select>
                             </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="projectCenter">Psychiatric Center</label>
+                          <div class="form-group">
+                            <label for="projectCenter">Psykiatrisk Center</label>
                             <select id="projectCenter" name="center" class="form-control" required>
-                                <option value="" disabled selected>Select center</option>
+                                <option value="" disabled selected>Vælg center</option>
                                 <option value="Børne- og Ungdomspsykiatrisk Center">Børne- og Ungdomspsykiatrisk Center</option>
                                 <option value="Psykiatrisk Center Amager">Psykiatrisk Center Amager</option>
                                 <option value="Psykiatrisk Center Ballerup">Psykiatrisk Center Ballerup</option>
@@ -310,24 +293,22 @@
                                 <option value="Psykiatrisk Center Stolpegård">Psykiatrisk Center Stolpegård</option>
                             </select>
                         </div>
-                        
-                        <div class="form-group" id="criteriaContainer">
-                            <label>Eligibility Criteria</label>
+                          <div class="form-group" id="criteriaContainer">
+                            <label>Deltagelseskriterier</label>
                             <div class="criteria-list">
                                 <div class="criteria-item">
-                                    <input type="text" name="criteria[]" class="form-control" placeholder="Enter a criterion" required>
+                                    <input type="text" name="criteria[]" class="form-control" placeholder="Indtast et kriterium" required>
                                     <button type="button" class="remove-criterion-btn"><i class="fas fa-times"></i></button>
                                 </div>
                             </div>
                             <button type="button" id="addCriterionBtn" class="add-button">
-                                <i class="fas fa-plus"></i> Add Criterion
+                                <i class="fas fa-plus"></i> Tilføj Kriterium
                             </button>
                         </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="secondary-button" id="cancelNewProjectBtn">Cancel</button>
-                    <button type="button" class="primary-button" id="submitNewProjectBtn">Submit Request</button>
+                </div>                <div class="modal-footer">
+                    <button type="button" class="secondary-button" id="cancelNewProjectBtn">Annuller</button>
+                    <button type="button" class="primary-button" id="submitNewProjectBtn">Indsend Anmodning</button>
                 </div>
             </div>
         </div>
@@ -336,25 +317,23 @@
     <!-- Project Actions Modal -->
     <div class="modal" id="projectActionsModal">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title" id="projectActionsTitle">Project Actions</h3>
+            <div class="modal-content">                <div class="modal-header">
+                    <h3 class="modal-title" id="projectActionsTitle">Projekthandlinger</h3>
                     <button class="close-button" id="closeProjectActionsModal">
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <div class="project-actions">
+                <div class="modal-body">                    <div class="project-actions">
                         <button class="action-btn edit-btn" id="requestEditBtn">
                             <i class="fas fa-edit"></i>
-                            <span>Request Edit</span>
-                            <p class="action-description">Submit changes for admin approval</p>
+                            <span>Anmod om Redigering</span>
+                            <p class="action-description">Indsend ændringer til administrativ godkendelse</p>
                         </button>
                         
                         <button class="action-btn delete-btn" id="requestDeleteBtn">
                             <i class="fas fa-trash-alt"></i>
-                            <span>Request Deletion</span>
-                            <p class="action-description">Request project removal</p>
+                            <span>Anmod om Sletning</span>
+                            <p class="action-description">Anmod om projektsletning</p>
                         </button>
                     </div>
                 </div>
@@ -365,9 +344,8 @@
     <!-- Request Delete Modal -->
     <div class="modal" id="deleteRequestModal">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title">Request Project Deletion</h3>
+            <div class="modal-content">                <div class="modal-header">
+                    <h3 class="modal-title">Anmod om Projektsletning</h3>
                     <button class="close-button" id="closeDeleteRequestModal">
                         <i class="fas fa-times"></i>
                     </button>
@@ -375,19 +353,17 @@
                 <div class="modal-body">
                     <div class="alert warning-alert">
                         <i class="fas fa-exclamation-triangle"></i>
-                        <span>This will request an administrator to delete this project.</span>
+                        <span>Dette vil anmode en administrator om at slette dette projekt.</span>
                     </div>
-                    
-                    <form id="deleteRequestForm">
+                      <form id="deleteRequestForm">
                         <div class="form-group">
-                            <label for="deleteReason">Reason for deletion request</label>
+                            <label for="deleteReason">Årsag til sletningsanmodning</label>
                             <textarea id="deleteReason" name="reason" class="form-control" rows="4" required></textarea>
                         </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="secondary-button" id="cancelDeleteRequestBtn">Cancel</button>
-                    <button type="button" class="danger-button" id="submitDeleteRequestBtn">Submit Delete Request</button>
+                </div>                <div class="modal-footer">
+                    <button type="button" class="secondary-button" id="cancelDeleteRequestBtn">Annuller</button>
+                    <button type="button" class="danger-button" id="submitDeleteRequestBtn">Indsend Sletningsanmodning</button>
                 </div>
             </div>
         </div>
@@ -407,27 +383,26 @@
                     <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
-            <div class="footer-col">
-                <h3 class="footer-title">Navigate</h3>
+            <div class="footer-col">                <h3 class="footer-title">Navigation</h3>
                 <div class="footer-links">
-                    <a href="/HTML/home.html" class="footer-link">Home</a>
-                    <a href="/HTML/home.html#projects" class="footer-link">Projects</a>
-                    <a href="#" class="footer-link">Testimonials</a>
+                    <a href="/HTML/home.html" class="footer-link">Forside</a>
+                    <a href="/HTML/home.html#projects" class="footer-link">Projekter</a>
+                    <a href="#" class="footer-link">Anmeldelser</a>
                     <a href="/HTML/faq.html" class="footer-link">FAQ</a>
                 </div>
             </div>
             <div class="footer-col">
-                <h3 class="footer-title">About</h3>
+                <h3 class="footer-title">Om</h3>
                 <div class="footer-links">
-                    <a href="/HTML/about.html" class="footer-link">About Us</a>
-                    <a href="/HTML/contact.html" class="footer-link">Contact</a>
-                    <a href="/HTML/researcher/login.html" class="footer-link">For Researchers</a>
-                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="/HTML/about.html" class="footer-link">Om Os</a>
+                    <a href="/HTML/contact.html" class="footer-link">Kontakt</a>
+                    <a href="/HTML/researcher/login.html" class="footer-link">For Forskere</a>
+                    <a href="#" class="footer-link">Privatlivspolitik</a>
                 </div>
             </div>
         </div>
         <div class="container">
-            <p class="copyright">© 2025 Region H Psykiatri. All rights reserved.</p>
+            <p class="copyright">© 2025 Region H Psykiatri. Alle rettigheder forbeholdes.</p>
         </div>
     </footer>
 
