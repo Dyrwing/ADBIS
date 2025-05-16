@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projektdetaljer - Region H Psykiatri: Psykiatrisk Forskning</title>    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Projektdetaljer - Region H Psykiatri: Psykiatrisk Forskning</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/CSS/home.css">
     <link rel="stylesheet" href="/CSS/project-detail.css">
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
         <div class="container header-container">
             <div class="logo">
-                <img src="/Public/Sources/Psykiatrimaerke_Twitter.png" alt="Region H Psykiatri Logo" class="logo-img">
+                <img src="/Sources/Psykiatrimaerke_Twitter.png" alt="Region H Psykiatri Logo" class="logo-img">
                 <span class="logo-text">Region H Psykiatri</span>
             </div>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
-            </button>            <nav class="nav-menu">
+            </button>
+            <nav class="nav-menu">
                 <a href="/Public/HTML/home.html" class="nav-item">Forside</a>
                 <a href="/Public/HTML/home.html#projects" class="nav-item">Projekter</a>
                 <a href="/Public/HTML/faq.html" class="nav-item">FAQ</a>
@@ -32,8 +37,9 @@
 
     <!-- Project Detail Section -->
     <section class="project-detail-section">
-        <div class="container">            <a href="/Public/HTML/home.html" class="back-button"><i class="fas fa-arrow-left"></i> Tilbage til Projekter</a>
-            
+        <div class="container"> <a href="/Public/HTML/home.html" class="back-button"><i class="fas fa-arrow-left"></i>
+                Tilbage til Projekter</a>
+
             <div class="project-detail-container" id="projectDetailContainer">
                 <!-- Project details will be loaded here by JavaScript -->
                 <div class="project-detail-loading">
@@ -58,7 +64,9 @@
                     <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
-            <div class="footer-col">                <h3 class="footer-title">Navigation</h3>                <div class="footer-links">
+            <div class="footer-col">
+                <h3 class="footer-title">Navigation</h3>
+                <div class="footer-links">
                     <a href="/Public/HTML/home.html" class="footer-link">Forside</a>
                     <a href="/Public/HTML/home.html#projects" class="footer-link">Projekter</a>
                     <a href="/Public/HTML/faq.html" class="footer-link">FAQ</a>
@@ -82,7 +90,8 @@
     <!-- Interest Modal -->
     <div class="modal-overlay" id="interestModal">
         <div class="modal">
-            <button class="modal-close" id="closeInterestModal"><i class="fas fa-times"></i></button>            <h2 class="modal-title">Udtryk interesse i deltagelse</h2>
+            <button class="modal-close" id="closeInterestModal"><i class="fas fa-times"></i></button>
+            <h2 class="modal-title">Udtryk interesse i deltagelse</h2>
             <form id="interestForm">
                 <div class="form-group">
                     <label for="interestName" class="form-label">Fulde navn</label>
@@ -97,7 +106,8 @@
                     <input type="tel" id="interestPhone" class="form-input" required>
                 </div>
                 <div class="form-group">
-                    <label for="interestMotivation" class="form-label">Hvorfor er du interesseret i dette studie?</label>
+                    <label for="interestMotivation" class="form-label">Hvorfor er du interesseret i dette
+                        studie?</label>
                     <textarea id="interestMotivation" class="form-input textarea" required rows="4"></textarea>
                 </div>
                 <button type="submit" class="form-button">Indsend interesse</button>
@@ -111,32 +121,33 @@
     <script src="/JS/home.js"></script>
     <script src="/JS/project-detail.js"></script>
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Get references to DOM elements
-        const interestModal = document.getElementById('interestModal');
-        const interestFormButton = document.getElementById('interestFormButton');
-        const closeInterestModal = document.getElementById('closeInterestModal');
-        
-        if (interestFormButton && interestModal) {
-            interestFormButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                interestModal.classList.add('active');
-            });
-        }
-        
-        if (closeInterestModal) {
-            closeInterestModal.addEventListener('click', () => {
-                interestModal.classList.remove('active');
-            });
-            
-            // Close interest modal when clicking outside
-            window.addEventListener('click', (e) => {
-                if (e.target === interestModal) {
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get references to DOM elements
+            const interestModal = document.getElementById('interestModal');
+            const interestFormButton = document.getElementById('interestFormButton');
+            const closeInterestModal = document.getElementById('closeInterestModal');
+
+            if (interestFormButton && interestModal) {
+                interestFormButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    interestModal.classList.add('active');
+                });
+            }
+
+            if (closeInterestModal) {
+                closeInterestModal.addEventListener('click', () => {
                     interestModal.classList.remove('active');
-                }
-            });
-        }
-    });
+                });
+
+                // Close interest modal when clicking outside
+                window.addEventListener('click', (e) => {
+                    if (e.target === interestModal) {
+                        interestModal.classList.remove('active');
+                    }
+                });
+            }
+        });
     </script>
 </body>
+
 </html>
