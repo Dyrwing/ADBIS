@@ -27,49 +27,76 @@ const verifyResearcherToken = (req, res, next) => {
 // GET all projects with basic info
 router.get('/projects', (req, res) => {
   // Extract query parameters for filtering
-  const { gender, age, type, diagnosis, center } = req.query;
+  // Using req.query directly as it can contain multiple values per filter
   
-  // Start building the query
+  // Start building the query with DISTINCT to avoid duplicates
   let query = `
-    SELECT p.id, p.title, p.description, p.type, p.location, p.duration, 
+    SELECT DISTINCT p.id, p.title, p.description, p.type, p.location, p.duration, 
            p.start_date as startDate, p.gender, p.age_range as ageRange, p.center
     FROM projects p
   `;
-  
-  // Add conditions for filtering
-  const conditions = [];
+  // We no longer need to join with diagnoses table
+  // We'll use EXISTS subquery instead for better performance and compatibility with other filters
+    // Add conditions for filtering
+  const filterConditions = [];
   const params = [];
   
-  if (gender && gender !== 'all') {
-    conditions.push('(p.gender = ? OR p.gender = "all")');
-    params.push(gender);
+  // Handle gender filter (multiple values with OR condition)
+  if (req.query.gender) {
+    const genderValues = Array.isArray(req.query.gender) ? req.query.gender : [req.query.gender];
+    if (!genderValues.includes('all')) {
+      const genderConditions = genderValues.map(() => '(p.gender = ? OR p.gender = "all")');
+      filterConditions.push(`(${genderConditions.join(' OR ')})`);
+      genderValues.forEach(g => params.push(g));
+    }
   }
   
-  if (age && age !== 'all') {
-    conditions.push('p.age_range = ?');
-    params.push(age);
+  // Handle age filter (multiple values with OR condition)
+  if (req.query.age) {
+    const ageValues = Array.isArray(req.query.age) ? req.query.age : [req.query.age];
+    if (!ageValues.includes('all')) {
+      const ageConditions = ageValues.map(() => 'p.age_range = ?');
+      filterConditions.push(`(${ageConditions.join(' OR ')})`);
+      ageValues.forEach(a => params.push(a));
+    }
+  }
+  // Handle type filter (multiple values with OR condition)
+  if (req.query.type) {
+    const typeValues = Array.isArray(req.query.type) ? req.query.type : [req.query.type];
+    if (!typeValues.includes('all')) {
+      const typeConditions = typeValues.map(() => 'p.type = ?');
+      filterConditions.push(`(${typeConditions.join(' OR ')})`);
+      typeValues.forEach(t => params.push(t));
+    }
   }
   
-  if (type) {
-    conditions.push('p.type = ?');
-    params.push(type);
+  // Handle center filter (multiple values with OR condition)
+  if (req.query.center) {
+    const centerValues = Array.isArray(req.query.center) ? req.query.center : [req.query.center];
+    if (!centerValues.includes('all')) {
+      const centerConditions = centerValues.map(() => 'p.center = ?');
+      filterConditions.push(`(${centerConditions.join(' OR ')})`);
+      centerValues.forEach(c => params.push(c));
+    }
   }
-  
-  if (center) {
-    conditions.push('p.center = ?');
-    params.push(center);
+    // Handle diagnosis filter - using EXISTS to properly handle multiple diagnoses
+  if (req.query.diagnosis) {
+    const diagnosisValues = Array.isArray(req.query.diagnosis) ? req.query.diagnosis : [req.query.diagnosis];
+    if (!diagnosisValues.includes('all')) {
+      // Use EXISTS with a subquery to find projects with ANY of the selected diagnoses
+      // This works better with multiple filter types than direct conditions
+      const placeholders = diagnosisValues.map(() => '?').join(',');
+      filterConditions.push(`EXISTS (SELECT 1 FROM diagnoses d2 WHERE d2.project_id = p.id AND d2.diagnosis IN (${placeholders}))`);
+      diagnosisValues.forEach(d => params.push(d));
+    }
   }
-  
-  // Add diagnosis filter which requires a join
-  if (diagnosis) {
-    query += 'INNER JOIN diagnoses d ON p.id = d.project_id ';
-    conditions.push('d.diagnosis = ?');
-    params.push(diagnosis);
-  }
-  
   // Add WHERE clause if there are conditions
-  if (conditions.length > 0) {
-    query += 'WHERE ' + conditions.join(' AND ');
+  if (filterConditions.length > 0) {
+    query += ' WHERE ' + filterConditions.join(' AND ');
+    
+    // Add GROUP BY and HAVING to handle the diagnosis filtering correctly
+    // This ensures projects match all selected filter criteria
+    query += ' GROUP BY p.id';
   }
   
   // Execute the query
